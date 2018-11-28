@@ -29,6 +29,12 @@ class Formats {
     Color footerColor = Color.BLACK;
     
     DefaultBarColor dc = new DefaultBarColor();
+    
+    Font rulerFont = new Font("Comic Sans MS", Font.PLAIN, 12);
+    Font keysFont = new Font("Comic Sans MS", Font.PLAIN, 12);
+    Font headerFont = new Font("Bodoni MT",Font.BOLD,24);
+    Font footerFont = new Font("Candara", Font.BOLD,16);
+    
 }
 
 class DefaultBarColor{ // have a changing color when data increase,by wang
@@ -36,6 +42,9 @@ class DefaultBarColor{ // have a changing color when data increase,by wang
 	Color mBarColor = new Color(128,255,0);
 	Color lBarColor = new Color(204,255,153);
 	Color xlBarColor = new Color(255,255,153);
+}
+enum HistogramFont{
+	
 }
 
 class HistogramData {
@@ -199,8 +208,7 @@ public class HistogramA {
     }
 
     private void plotRuler() {
-        Font font = new Font("consolas", Font.PLAIN, 12); // TO BE Customized
-        StdDraw.setFont(font);
+        StdDraw.setFont(f.rulerFont);
         StdDraw.setPenColor(f.rulerColor);
         final double x0 = xValue[MIN] - 0.05, x1 = xValue[MIN] + 0.05;
         String[] mark = new String[rulerGrade + 1];
@@ -242,8 +250,7 @@ public class HistogramA {
     }
 
     private void plotKeys() {
-        Font font = new Font("consolas", Font.PLAIN, 12); // TO BE Customized
-        StdDraw.setFont(font);
+        StdDraw.setFont(f.keysFont);
         StdDraw.setPenColor(f.keyColor);
         final double y = yValue[MIN] - 0.5 * rulerStep;
         for (int i = 0; i < d.keys.length; i++) {
@@ -275,8 +282,7 @@ public class HistogramA {
     } // DONE
 
     private void plotHeader() {
-        Font font = new Font("calibri", Font.PLAIN, 20); // TO BE Customized
-        StdDraw.setFont(font);
+        StdDraw.setFont(f.headerFont);
         double x = .5 * (xScale[MIN] + xScale[MAX]);
         double y = .5 * (yValue[MAX] + yScale[MAX]);
         StdDraw.setPenColor(f.headerColor);
@@ -284,8 +290,7 @@ public class HistogramA {
     }
 
     private void plotFooter() {
-        Font font = new Font("consolas", Font.BOLD, 16); // TO BE Customized
-        StdDraw.setFont(font);
+        StdDraw.setFont(f.footerFont);
         double x = .5 * (xScale[MIN] + xScale[MAX]);
         double y = .5 * (yScale[MIN] + yValue[MIN]);
         StdDraw.setPenColor(f.footerColor);

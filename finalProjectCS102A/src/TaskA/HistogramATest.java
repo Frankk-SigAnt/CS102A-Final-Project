@@ -1,6 +1,7 @@
 package TaskA;
 
 import java.awt.Color;
+import java.awt.Font;
 import java.io.*;
 import javax.json.*;
 
@@ -79,6 +80,21 @@ public class HistogramATest {
         int[] c = toIntArray(jsa);
         return new Color(c[0], c[1], c[2]);
     }
+    //add for font getting
+    private static Font getFontFrom(JsonArray jsa) {
+    	String[] f = toStringArray(jsa);
+    	switch (f[1]) {//for font style 
+		case "BOLD":
+			return new Font(f[0],Font.BOLD,Integer.parseInt(f[2]));
+		case "PLAIN":
+			return new Font(f[0],Font.PLAIN,Integer.parseInt(f[2]));
+		case "ITALIC":
+			return new Font(f[0],Font.ITALIC,Integer.parseInt(f[2]));
+		case "BOLD + ITALIC":
+			return new Font(f[0],Font.BOLD+Font.ITALIC,Integer.parseInt(f[2]));
+		}
+    	return null;
+    }
 
     private static Formats getFormatsFrom(JsonObject obj) { // DONE for default values
         Formats fmts = new Formats();
@@ -127,6 +143,20 @@ public class HistogramATest {
         if (obj.containsKey("footercolor")) {
             fmts.footerColor = getColorFrom(obj.getJsonArray("footercolor"));
         }
+        //add for font getting judge
+        if (obj.containsKey("rulerFont")) {
+            fmts.footerColor = getColorFrom(obj.getJsonArray("rulerFont"));
+        }
+        if (obj.containsKey("keysFont")) {
+            fmts.footerColor = getColorFrom(obj.getJsonArray("keysFont"));
+        }
+        if (obj.containsKey("headerFont")) {
+            fmts.footerColor = getColorFrom(obj.getJsonArray("headerFont"));
+        }
+        if (obj.containsKey("footerFont")) {
+            fmts.footerColor = getColorFrom(obj.getJsonArray("footerFont"));
+        }
+
         return fmts;
     }
 

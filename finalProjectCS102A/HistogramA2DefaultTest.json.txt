@@ -4,21 +4,6 @@
    },
    
    "formats" : {
-      "margins" : [0.15, 0.15, 0.1, 0.05],
-      "isbarfilled" : true,
-      "barfillcolor" : [0, 0, 255], 
-      "hasbarframe" : false,
-      "barframecolor" : [255, 0, 0],  
-      "hasborder" : true,
-      "bordercolor" : [0, 255, 0],
-      "rulercolor" : [200, 200, 0],
-      "rulermarkcolor" : [200, 200, 0],
-      "hasrightruler" : true,
-      "keycolor" : [200, 200, 0],
-      "hasheader" : true,
-      "headercolor" : [100, 100, 100],
-      "hasfooter" : true,
-      "footercolor" : [0, 200, 200]
    },
      
    "data" : { 
