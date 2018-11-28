@@ -134,7 +134,9 @@ public class HistogramATest {
         HistogramData data = new HistogramData();
         data.header = obj.getString("header", "");
         data.footer = obj.getString("footer", "");
-        data.minValue = obj.getJsonNumber("minvalue").doubleValue(); // TODO for default value
+        if (obj.containsKey("minvalue")) {
+            data.minValue = obj.getJsonNumber("minvalue").doubleValue(); // DONE for default value
+        }
         data.keys = toStringArray(obj.getJsonArray("keys"));
         data.values = toDoubleArray(obj.getJsonArray("values"));
         return data;
