@@ -14,8 +14,8 @@ class Canvas {
 class Formats {
     double[] margins = { 0.15, 0.15, 0.1, 0.05 }; // NORTH, SOUTH, WEST, EAST
     boolean isBarFilled = true;
-    Color barFillColor = Color.BLACK;
-    boolean hasBarFrame = true;
+    Color barFillColor = null;//null by default
+    boolean hasBarFrame = false;
     Color barFrameColor = Color.BLACK;
     boolean hasBorder = true;
     Color borderColor = Color.BLACK;
@@ -27,6 +27,15 @@ class Formats {
     Color headerColor = Color.BLACK;
     boolean hasFooter = true;
     Color footerColor = Color.BLACK;
+    
+    DefaultBarColor dc = new DefaultBarColor();
+}
+
+class DefaultBarColor{ // have a changing color when data increase,by wang
+	Color sBarColor = new Color(0,153,76);
+	Color mBarColor = new Color(128,255,0);
+	Color lBarColor = new Color(204,255,153);
+	Color xlBarColor = new Color(255,255,153);
 }
 
 class HistogramData {
@@ -146,13 +155,40 @@ public class HistogramA {
         double[] a = d.values;
         int n = a.length;
         setHistogramScale(n);
+        
         if (f.isBarFilled) {
-            StdDraw.setPenColor(f.barFillColor);
-            for (int i = 0; i < n; i++) {
+        	if(f.barFillColor !=null) {
+        		StdDraw.setPenColor(f.barFillColor);
+        		for (int i = 0; i < n; i++) {
                 StdDraw.filledRectangle(i, a[i] / 2, 0.25, a[i] / 2);
                 // (x, y, halfWidth, halfHeight)
+        		}
+        	}
+            else {
+            	for (int i = 0; i < n; i++) {
+            		if(a[i]/2 < a[n-1]/8) {
+            			StdDraw.setPenColor(f.dc.sBarColor);
+            			StdDraw.filledRectangle(i, a[i] / 2, 0.25, a[i] / 2);
+            		}
+            		
+            		else if(a[i]/2 < a[n-1]/6) {
+            			StdDraw.setPenColor(f.dc.mBarColor);
+            			StdDraw.filledRectangle(i, a[i] / 2, 0.25, a[i] / 2);
+            		}
+            		
+            		else if(a[i]/2 < a[n-1]/4) {
+            			StdDraw.setPenColor(f.dc.lBarColor);
+            			StdDraw.filledRectangle(i, a[i] / 2, 0.25, a[i] / 2);
+            		}
+            		
+            		else{
+            			StdDraw.setPenColor(f.dc.xlBarColor);
+            			StdDraw.filledRectangle(i, a[i] / 2, 0.25, a[i] / 2);
+            		}
+                }
             }
         }
+        
         if (f.hasBarFrame) {
             StdDraw.setPenColor(f.barFrameColor);
             for (int i = 0; i < n; i++) {
