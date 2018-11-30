@@ -43,9 +43,6 @@ class DefaultBarColor{ // have a changing color when data increase,by wang
 	Color lBarColor = new Color(204,255,153);
 	Color xlBarColor = new Color(255,255,153);
 }
-enum HistogramFont{
-	
-}
 
 class HistogramData {
     String header = "";
