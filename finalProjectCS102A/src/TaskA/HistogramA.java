@@ -35,6 +35,9 @@ class Formats {
     Font headerFont = new Font("Bodoni MT",Font.BOLD,24);
     Font footerFont = new Font("Candara", Font.BOLD,16);
     
+    double[] headerLocation;
+    double[] footerLocation;
+    
 }
 
 class DefaultBarColor{ // have a changing color when data increase,by wang
@@ -280,18 +283,28 @@ public class HistogramA {
 
     private void plotHeader() {
         StdDraw.setFont(f.headerFont);
-        double x = .5 * (xScale[MIN] + xScale[MAX]);
-        double y = .5 * (yValue[MAX] + yScale[MAX]);
         StdDraw.setPenColor(f.headerColor);
-        StdDraw.text(x, y, d.header);
+        if(f.headerLocation == null) {
+        	double x = .5 * (xScale[MIN] + xScale[MAX]);
+        	double y = .5 * (yValue[MAX] + yScale[MAX]);
+        	StdDraw.text(x, y, d.header);
+        }
+        else {
+        	StdDraw.text(f.headerLocation[0], f.headerLocation[1], d.header);
+        }
     }
 
     private void plotFooter() {
         StdDraw.setFont(f.footerFont);
-        double x = .5 * (xScale[MIN] + xScale[MAX]);
-        double y = .5 * (yScale[MIN] + yValue[MIN]);
         StdDraw.setPenColor(f.footerColor);
-        StdDraw.text(x, y, d.footer);
+        if(f.footerLocation == null) {
+        	double x = .5 * (xScale[MIN] + xScale[MAX]);
+        	double y = .5 * (yScale[MIN] + yValue[MIN]);
+        	StdDraw.text(x, y, d.footer);
+        }
+        else {
+        	StdDraw.text(f.footerLocation[0], f.footerLocation[1], d.footer);
+        }
     }
 
     private final static int NORTH = 0;

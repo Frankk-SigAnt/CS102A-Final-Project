@@ -27,7 +27,9 @@
       "rulerFont" : ["consolas", "ITALIC", "12"],
       "keysFont" : ["consolas", "ITALIC", "12"],
       "headerFont": ["consolas","ITALIC", "12"],
-      "footerFont" : ["consolas","ITALIC", "12"]
+      "footerFont" : ["consolas","ITALIC", "12"],
+      "headerLocation" : [50,1012500.125],
+      "footerLocation" : [10,1000000]
    },
      
    "data" : { 

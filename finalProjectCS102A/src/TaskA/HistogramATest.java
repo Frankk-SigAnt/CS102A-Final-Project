@@ -156,7 +156,14 @@ public class HistogramATest {
         if (obj.containsKey("footerFont")) {
             fmts.footerFont = getFontFrom(obj.getJsonArray("footerFont"));
         }
-
+        //add for getting text location
+        if (obj.containsKey("footerLocation")) {
+            fmts.footerLocation = toDoubleArray(obj.getJsonArray("footerLocation"));
+        }
+        if (obj.containsKey("headerLocation")) {
+            fmts.headerLocation = toDoubleArray(obj.getJsonArray("headerLocation"));
+        }
+        
         return fmts;
     }
 
