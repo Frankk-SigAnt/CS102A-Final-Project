@@ -145,16 +145,16 @@ public class HistogramATest {
         }
         //add for font getting judge
         if (obj.containsKey("rulerFont")) {
-            fmts.footerColor = getColorFrom(obj.getJsonArray("rulerFont"));
+            fmts.rulerFont = getFontFrom(obj.getJsonArray("rulerFont"));
         }
         if (obj.containsKey("keysFont")) {
-            fmts.footerColor = getColorFrom(obj.getJsonArray("keysFont"));
+            fmts.keysFont = getFontFrom(obj.getJsonArray("keysFont"));
         }
         if (obj.containsKey("headerFont")) {
-            fmts.footerColor = getColorFrom(obj.getJsonArray("headerFont"));
+            fmts.headerFont = getFontFrom(obj.getJsonArray("headerFont"));
         }
         if (obj.containsKey("footerFont")) {
-            fmts.footerColor = getColorFrom(obj.getJsonArray("footerFont"));
+            fmts.footerFont = getFontFrom(obj.getJsonArray("footerFont"));
         }
 
         return fmts;

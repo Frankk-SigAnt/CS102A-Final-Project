@@ -23,11 +23,11 @@
       "hasheader" : true,
       "headercolor" : [100, 100, 100],
       "hasfooter" : true,
-      "footercolor" : [0, 200, 200]
-      "rulerFont" : "consolas",
-      "keysFont" : "consolas",
-      "headerFont": "consolas",
-      "footerFont" : "consolas",
+      "footercolor" : [0, 200, 200],
+      "rulerFont" : ["consolas", "ITALIC", "12"],
+      "keysFont" : ["consolas", "ITALIC", "12"],
+      "headerFont": ["consolas","ITALIC", "12"],
+      "footerFont" : ["consolas","ITALIC", "12"]
    },
      
    "data" : { 
