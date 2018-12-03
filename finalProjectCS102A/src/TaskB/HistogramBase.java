@@ -50,6 +50,7 @@ class DefaultBarColor{ // have a changing color when data increase,by wang
 class HistogramData {
     String header = "";
     String footer = "";
+    String source = ""; //add for URL source shown in figure
     double minValue = 0.0;
     String[] keys = {};
     double[] values = {};
