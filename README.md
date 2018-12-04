@@ -20,4 +20,5 @@ Final project for CS102A, SUSTech (Fall 2018)
 
 ### Task C
  - [ ] **C.1** Define class `HistogramC` and main class to plot horizontal bar charts
- - [ ] **C.2** Implement animation (best 20fps)
+ - [ ] **C.2** Complete key frames according to the data
+ - [ ] **C.3** Finish animation using linear interpolation
