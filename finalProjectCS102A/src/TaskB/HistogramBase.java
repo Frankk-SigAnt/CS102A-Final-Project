@@ -53,6 +53,7 @@ class HistogramData {
     String source = ""; //add for URL source shown in figure
     double minValue = 0.0;
     String[] keys = {};
+    double groupNumber;
     double[] values = {};
 }
 
@@ -145,7 +146,7 @@ public abstract class HistogramBase {
         StdDraw.setPenColor(c.color);
     }
 
-    private void setHistogramScale(int nBars) {
+    protected void setHistogramScale(int nBars) {
         double span = yValue[MAX] - yValue[MIN] + 1;
         double ySpacing = span / (1 - f.margins[NORTH] - f.margins[SOUTH]);
         yScale[MIN] = yValue[MIN] - f.margins[SOUTH] * ySpacing - 1;
@@ -165,7 +166,7 @@ public abstract class HistogramBase {
 
     protected abstract void plotBars();
 
-    private void plotRuler() {
+    protected void plotRuler() {
         StdDraw.setFont(f.rulerFont);
         StdDraw.setPenColor(f.rulerColor);
         final double x0 = xValue[MIN] - 0.05, x1 = xValue[MIN] + 0.05;
@@ -183,7 +184,7 @@ public abstract class HistogramBase {
         }
     }
 
-    private String numberForRuler(double x) { // TO BE Customized
+    protected String numberForRuler(double x) { // TO BE Customized
         if (yValue[MAX] >= 5 && rulerStep > 1)
             return "" + (int) x;
         if (rulerStep > 0.1)
