@@ -179,6 +179,9 @@ public class HistogramGroupedTest {
         data.values = toDoubleArray(obj.getJsonArray("values"));
         if(obj.containsKey("groupNumber"))
         	data.groupNumber = obj.getJsonNumber("groupNumber").intValue();
+        if(obj.containsKey("groupMembers"))
+        	data.groupMembers = toStringArray(obj.getJsonArray("groupMembers"));
+        
         return data;
     }
 }

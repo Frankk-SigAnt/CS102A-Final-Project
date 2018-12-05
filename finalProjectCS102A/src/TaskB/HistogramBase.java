@@ -31,9 +31,10 @@ class Formats {
     DefaultBarColor dc = new DefaultBarColor();
     
     Font rulerFont = new Font("Comic Sans MS", Font.PLAIN, 12);
-    Font keysFont = new Font("Comic Sans MS", Font.PLAIN, 12);
+    Font keysFont = new Font("Comic Sans MS", Font.BOLD, 15);
     Font headerFont = new Font("Bodoni MT",Font.BOLD,24);
     Font footerFont = new Font("Candara", Font.BOLD,16);
+    Font legendsFont = new Font("Comic Sans MS", Font.PLAIN, 12);
     
     double[] headerLocation;
     double[] footerLocation;
@@ -51,9 +52,10 @@ class HistogramData {
     String header = "";
     String footer = "";
     String source = ""; //add for URL source shown in figure
+    String[] groupMembers = {}; 
     double minValue = 0.0;
     String[] keys = {};
-    double groupNumber;
+    int groupNumber = 0;
     double[] values = {};
 }
 

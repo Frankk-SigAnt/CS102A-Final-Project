@@ -12,6 +12,7 @@
       "source" : "http://data.stats.gov.cn/index.htm",
       "minvalue" : 0.0,
       "groupNumber" : 3,
+      "groupMembers" : ["SHENZHEN","SHANGHAI","BEIJING"],
       "keys" : [
           "2004", 
           "2008", 
