@@ -1,6 +1,9 @@
 package TaskB;
 
 import java.awt.Color;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 import TaskA.StdDraw;
 
@@ -10,12 +13,72 @@ public class HistogramGrouped extends HistogramBase {
 		c.x = 768;
 		f.hasBorder = false;
 		f.hasFooter = false;
+		f.hasRightRuler = false;
+		f.margins[0] = 0.2;//NORTH
+		f.margins[1] = 0.2;//SOUTH
+		f.margins[2] = 0.14;//WEST
+		f.margins[3] = 0.14;//EAST
+		
+		v.add((double) 0);
+		for(int i = 0; i < d.values.length; i++) {
+			v.add(d.values[i]);
+			if(((i+1) % d.groupNumber == 0)&&(i!=d.values.length-1)) {
+				v.add((double) 0);
+				v.add((double) 0);
+			}
+		}
+		v.add((double) 0);
+        this.setHistogramParameters();
 	}
+	@Override
+    protected void setHistogramParameters() {
+        double[] a = d.values;
+        xValue[MIN] = -1;
+        xValue[MAX] = this.v.size();
+
+        yValue[MIN] = d.minValue;
+
+        double max = a[0];
+        for (int i = 1; i < a.length; i++)
+            if (max < a[i])
+                max = a[i];
+
+        double span = max - yValue[MIN];
+        double factor = 1.0;
+        if (span >= 1)
+            while (span >= 10) {
+                span /= 10;
+                factor *= 10;
+            }
+        else
+            while (span < 1) {
+                span *= 10;
+                factor /= 10;
+            }
+        int nSpan = (int) Math.ceil(span);
+        yValue[MAX] = yValue[MIN] + factor * nSpan;
+        switch (nSpan) {
+        case 1:
+            rulerGrade = 5;
+            rulerStep = factor / 5;
+            break;
+        case 2:
+        case 3:
+            rulerGrade = nSpan * 2;
+            rulerStep = factor / 2;
+            break;
+        default:
+            rulerGrade = nSpan;
+            rulerStep = factor;
+            break;
+        }
+    }
+
 	
     public void draw() {
         setCanvas();
-        plotBars();
         plotRuler();
+        plotBars();
         plotKeys();
         plotLegends();
         if (f.hasBorder)
@@ -55,9 +118,13 @@ public class HistogramGrouped extends HistogramBase {
 
 
     protected void plotRuler() {
+		int n = v.size();
+		setHistogramScale(n);
+
+    	
         StdDraw.setFont(f.rulerFont);
         StdDraw.setPenColor(f.rulerColor);
-        final double x0 = xValue[MIN] - 0.05, x1 = xValue[MIN] + 0.05;
+        final double x0 = xValue[MIN] - 0.05, x1 = xValue[MAX];
         String[] mark = new String[rulerGrade + 1];
         for (int i = 0; i <= rulerGrade; i++) {
             double y = yValue[MIN] + i * rulerStep;
@@ -161,21 +228,20 @@ public class HistogramGrouped extends HistogramBase {
 	
 
 	protected void plotBars() {
-		double[] a = d.values;
-		int n = a.length;
-		setHistogramScale(n);
-
-		if (f.isBarFilled) {
+		ArrayList<Double> v = this.v;
+		int n = v.size();
+			
+		if (f.isBarFilled) {	
 			if (f.barFillColor != null) {
 				StdDraw.setPenColor(f.barFillColor);
 				for (int i = 0; i < n; i++) {
-					StdDraw.filledRectangle(i, a[i] / 2, 0.25, a[i] / 2);
+					StdDraw.filledRectangle(i, v.get(i) / 2, 0.25, v.get(i) / 2);
 					// (x, y, halfWidth, halfHeight)
 				}
 			} else {
 				for (int i = 0; i < n; i++) {
 					StdDraw.setPenColor(g.groupedColor[0]);
-					StdDraw.filledRectangle(i, a[i] / 2, 0.25, a[i] / 2);
+					StdDraw.filledRectangle(i, v.get(i) / 2, 0.38, v.get(i) / 2);
 				}
 			}
 		}
@@ -183,14 +249,15 @@ public class HistogramGrouped extends HistogramBase {
 		if (f.hasBarFrame) {
 			StdDraw.setPenColor(f.barFrameColor);
 			for (int i = 0; i < n; i++) {
-				StdDraw.rectangle(i, a[i] / 2, 0.25, a[i] / 2);
+				StdDraw.rectangle(i, v.get(i) / 2, 0.25, v.get(i) / 2);
 				// (x, y, halfWidth, halfHeight)
 			}
 		}
 
 	}
 
-	GroupedColor g = new GroupedColor(); // groupedcolor
+	GroupedColor g = new GroupedColor();
+	ArrayList<Double> v = new ArrayList<>();//values with Blanks
 }
 
 class GroupedColor {

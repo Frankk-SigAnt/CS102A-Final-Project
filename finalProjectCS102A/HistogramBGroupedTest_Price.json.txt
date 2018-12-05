@@ -7,8 +7,8 @@
    },
 
    "data" : {
-      "header" : "2004-2016年北上深住宅商品房平均销售价格",
-      "footer" : "2004-2016年北上深住宅商品房平均销售价格条形图(元/平方米)",
+      "header" : "2004 to 2016 average price of commercial residential houses in three cities",
+      "footer" : "2004 to 2016 average sales price of commercial residential houses in",
       "source" : "http://data.stats.gov.cn/index.htm",
       "minvalue" : 0.0,
       "groupNumber" : 3,

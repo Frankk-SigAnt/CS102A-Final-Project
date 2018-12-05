@@ -77,10 +77,9 @@ public abstract class HistogramBase {
         yValue = new double[2];
         xScale = new double[2];
         yScale = new double[2];
-        setHistogramParameters();
     }
 
-    private void setHistogramParameters() {
+    protected void setHistogramParameters() {
         double[] a = d.values;
         xValue[MIN] = -1;
         xValue[MAX] = a.length;
