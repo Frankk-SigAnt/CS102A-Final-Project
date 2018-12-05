@@ -240,7 +240,19 @@ public class HistogramGrouped extends HistogramBase {
 				}
 			} else {
 				for (int i = 0; i < n; i++) {
-					StdDraw.setPenColor(g.groupedColor[0]);
+					switch ( i % 5) {
+					case 1:
+						StdDraw.setPenColor(g.groupedColor[0]);
+						break;
+					case 2:
+						StdDraw.setPenColor(g.groupedColor[1]);
+						break;
+					case 3:
+						StdDraw.setPenColor(g.groupedColor[2]);
+						break;
+					default:
+						break;
+					}
 					StdDraw.filledRectangle(i, v.get(i) / 2, 0.38, v.get(i) / 2);
 				}
 			}
@@ -263,8 +275,8 @@ public class HistogramGrouped extends HistogramBase {
 class GroupedColor {
 	Color[] groupedColor = new Color[3];
 	public GroupedColor(){
-		this.groupedColor[0] = new Color(153, 51, 255);
-		this.groupedColor[1] = new Color(153, 0, 76);
-		this.groupedColor[2] = new Color(160, 82, 45);
+		this.groupedColor[0] = new Color(233, 191, 89);
+		this.groupedColor[1] = new Color(164, 90, 123);
+		this.groupedColor[2] = new Color(107, 64, 110);
 	}
 }
