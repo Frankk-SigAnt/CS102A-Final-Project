@@ -4,32 +4,32 @@ import java.awt.Color;
 import java.awt.Font;
 
 public class Formats {
-    double[] margins = { 0.15, 0.15, 0.1, 0.05 }; // NORTH, SOUTH, WEST, EAST
-    boolean isBarFilled = true;
-    Color barFillColor = null;//null by default
-    boolean hasBarFrame = false;
-    Color barFrameColor = Color.BLACK;
-    boolean hasBorder = true;
-    Color borderColor = Color.BLACK;
-    Color rulerColor = Color.BLACK;
-    Color rulerMarkColor = Color.BLACK;
-    boolean hasRightRuler = true;
-    Color keyColor = Color.BLACK;
-    boolean hasHeader = true;
-    Color headerColor = Color.BLACK;
-    boolean hasFooter = true;
-    Color footerColor = Color.BLACK;
+    public double[] margins = { 0.15, 0.15, 0.1, 0.05 }; // NORTH, SOUTH, WEST, EAST
+    public boolean isBarFilled = true;
+    public Color barFillColor = null;//null by default
+    public boolean hasBarFrame = false;
+    public Color barFrameColor = Color.BLACK;
+    public boolean hasBorder = true;
+    public Color borderColor = Color.BLACK;
+    public Color rulerColor = Color.BLACK;
+    public Color rulerMarkColor = Color.BLACK;
+    public boolean hasRightRuler = true;
+    public Color keyColor = Color.BLACK;
+    public boolean hasHeader = true;
+    public Color headerColor = Color.BLACK;
+    public boolean hasFooter = true;
+    public Color footerColor = Color.BLACK;
     
-    DefaultBarColor dc = new DefaultBarColor();
+    public DefaultBarColor dc = new DefaultBarColor();
     
-    Font rulerFont = new Font("Comic Sans MS", Font.PLAIN, 12);
-    Font keysFont = new Font("Comic Sans MS", Font.BOLD, 15);
-    Font headerFont = new Font("Bodoni MT",Font.BOLD,24);
-    Font footerFont = new Font("Candara", Font.BOLD,16);
-    Font legendsFont = new Font("Comic Sans MS", Font.PLAIN, 12);
+    public Font rulerFont = new Font("Comic Sans MS", Font.PLAIN, 12);
+    public Font keysFont = new Font("Comic Sans MS", Font.BOLD, 15);
+    public Font headerFont = new Font("Bodoni MT",Font.BOLD,24);
+    public Font footerFont = new Font("Candara", Font.BOLD,16);
+    public Font legendsFont = new Font("Comic Sans MS", Font.PLAIN, 12);
     
-    double[] headerLocation;
-    double[] footerLocation;
+    public double[] headerLocation;
+    public double[] footerLocation;
 }
 
 class DefaultBarColor{ // have a changing color when data increase,by wang

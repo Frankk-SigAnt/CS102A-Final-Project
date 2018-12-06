@@ -1,18 +1,26 @@
 package TaskB;
 
 public class HistogramData {
-    String header = "";
-    String footer = "";
-    String source = ""; //add for URL source shown in figure
-    String[] groupMembers = {}; 
-    double minValue = 0.0;
-    String[] keys = {};
-    int groupNumber = 0;
-    double[] values = {};
+    public String header = "";
+    public String footer = "";
+    public String source = ""; //add for URL source shown in figure
+    public String[] groupMembers = {}; 
+    public double minValue = 0.0;
+    public String[] keys = {};
+    public int groupNumber = 0;
+    public double[] values = {};
     RankingMap map = new RankingMap();
     
     public void generateMap() {
         map.generateMap(values.clone());
+    }
+    
+    public int mapRanking(int index) {
+        return map.getRanking(index);
+    }
+    
+    public int mapIndex(int ranking) {
+        return map.getIndex(ranking);
     }
 }
 
