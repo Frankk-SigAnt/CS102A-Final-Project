@@ -153,14 +153,6 @@ public class HistogramGrouped extends HistogramBase {
 		return String.format("%g", x);
 	}
 
-	private int maxMarkLength(String[] sa) {
-		int n = sa[0].length();
-		for (String s : sa)
-			if (n < s.length())
-				n = s.length();
-		return n;
-	}
-
 	protected void plotKeys() {
 		StdDraw.setFont(f.keysFont);
 		StdDraw.setPenColor(f.keyColor);

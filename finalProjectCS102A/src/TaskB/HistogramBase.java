@@ -82,7 +82,7 @@ public abstract class HistogramBase {
 
     protected abstract String numberForRuler(double x);
 
-    private int maxMarkLength(String[] sa) {
+    protected int maxMarkLength(String[] sa) {
         int n = sa[0].length();
         for (String s : sa)
             if (n < s.length())
