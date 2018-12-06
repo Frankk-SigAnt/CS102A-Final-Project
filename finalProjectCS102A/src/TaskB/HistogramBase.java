@@ -5,15 +5,15 @@ import java.awt.Font;
 
 // Defining abstract base class for Task B
 public abstract class HistogramBase {
-    Canvas c;
-    Formats f;
-    HistogramData d;
-    double[] xValue; // MIN, MAX
-    double[] yValue; // MIN, MAX
-    double[] xScale; // MIN, MAX
-    double[] yScale; // MIN, MAX
-    int rulerGrade;
-    double rulerStep;
+    protected Canvas c;
+    protected Formats f;
+    protected HistogramData d;
+    protected double[] xValue; // MIN, MAX
+    protected double[] yValue; // MIN, MAX
+    protected double[] xScale; // MIN, MAX
+    protected double[] yScale; // MIN, MAX
+    protected int rulerGrade;
+    protected double rulerStep;
 
     public HistogramBase(Canvas c, Formats f, HistogramData d) {
         this.c = c;
