@@ -245,7 +245,7 @@ public class HistogramGrouped extends HistogramBase {
 			if (f.barFillColor != null) {
 				StdDraw.setPenColor(f.barFillColor);
 				for (int i = 0; i < n; i++) {
-					StdDraw.filledRectangle(i, v.get(i) / 2, 0.25, v.get(i) / 2);
+					StdDraw.filledRectangle(i, v.get(i) / 2 + d.minValue, 0.25, v.get(i) / 2);
 					// (x, y, halfWidth, halfHeight)
 				}
 			} else {
@@ -263,7 +263,7 @@ public class HistogramGrouped extends HistogramBase {
 					default:
 						break;
 					}
-					StdDraw.filledRectangle(i, v.get(i) / 2, 0.38, v.get(i) / 2);
+					StdDraw.filledRectangle(i, v.get(i) / 2 + d.minValue, 0.38, v.get(i) / 2);
 				}
 			}
 		}
@@ -271,7 +271,7 @@ public class HistogramGrouped extends HistogramBase {
 		if (f.hasBarFrame) {
 			StdDraw.setPenColor(f.barFrameColor);
 			for (int i = 0; i < n; i++) {
-				StdDraw.rectangle(i, v.get(i) / 2, 0.25, v.get(i) / 2);
+				StdDraw.rectangle(i, v.get(i) / 2 + d.minValue, 0.25, v.get(i) / 2);
 				// (x, y, halfWidth, halfHeight)
 			}
 		}

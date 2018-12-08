@@ -169,7 +169,7 @@ public class HistogramA {
         	if(f.barFillColor !=null) {
         		StdDraw.setPenColor(f.barFillColor);
         		for (int i = 0; i < n; i++) {
-                StdDraw.filledRectangle(i, a[i] / 2, 0.25, a[i] / 2);
+                StdDraw.filledRectangle(i, a[i] / 2 + d.minValue, 0.25, a[i] / 2);
                 // (x, y, halfWidth, halfHeight)
         		}
         	}
@@ -177,22 +177,22 @@ public class HistogramA {
             	for (int i = 0; i < n; i++) {
             		if(a[i]/2 < a[n-1]/8) {
             			StdDraw.setPenColor(f.dc.sBarColor);
-            			StdDraw.filledRectangle(i, a[i] / 2, 0.25, a[i] / 2);
+            			StdDraw.filledRectangle(i, a[i] / 2 + d.minValue, 0.25, a[i] / 2);
             		}
             		
             		else if(a[i]/2 < a[n-1]/6) {
             			StdDraw.setPenColor(f.dc.mBarColor);
-            			StdDraw.filledRectangle(i, a[i] / 2, 0.25, a[i] / 2);
+            			StdDraw.filledRectangle(i, a[i] / 2 + d.minValue, 0.25, a[i] / 2);
             		}
             		
             		else if(a[i]/2 < a[n-1]/4) {
             			StdDraw.setPenColor(f.dc.lBarColor);
-            			StdDraw.filledRectangle(i, a[i] / 2, 0.25, a[i] / 2);
+            			StdDraw.filledRectangle(i, a[i] / 2 + d.minValue, 0.25, a[i] / 2);
             		}
             		
             		else{
             			StdDraw.setPenColor(f.dc.xlBarColor);
-            			StdDraw.filledRectangle(i, a[i] / 2, 0.25, a[i] / 2);
+            			StdDraw.filledRectangle(i, a[i] / 2 + d.minValue, 0.25, a[i] / 2);
             		}
                 }
             }
@@ -201,7 +201,7 @@ public class HistogramA {
         if (f.hasBarFrame) {
             StdDraw.setPenColor(f.barFrameColor);
             for (int i = 0; i < n; i++) {
-                StdDraw.rectangle(i, a[i] / 2, 0.25, a[i] / 2);
+                StdDraw.rectangle(i, a[i] / 2 + d.minValue, 0.25, a[i] / 2);
                 // (x, y, halfWidth, halfHeight)
             }
         }
