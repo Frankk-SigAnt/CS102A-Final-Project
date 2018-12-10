@@ -19,6 +19,8 @@ public class Formats {
     public Color headerColor = Color.BLACK;
     public boolean hasFooter = true;
     public Color footerColor = Color.BLACK;
+    public boolean hasSource = true;
+    public Color sourceColor = Color.BLACK;
     
     public DefaultBarColor dc = new DefaultBarColor();
     
@@ -27,6 +29,7 @@ public class Formats {
     public Font headerFont = new Font("Bodoni MT",Font.BOLD,24);
     public Font footerFont = new Font("Candara", Font.BOLD,16);
     public Font legendsFont = new Font("Comic Sans MS", Font.PLAIN, 12);
+    public Font sourceFont = new Font("Candara", Font.PLAIN,10);
     
     public double[] headerLocation;
     public double[] footerLocation;

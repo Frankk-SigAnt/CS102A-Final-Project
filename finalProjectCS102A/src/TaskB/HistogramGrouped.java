@@ -81,6 +81,7 @@ public class HistogramGrouped extends HistogramBase {
 		plotBars();
 		plotKeys();
 		plotLegends();
+		plotSource();
 		if (f.hasBorder)
 			plotBorder();
 		if (f.hasRightRuler)
@@ -89,6 +90,7 @@ public class HistogramGrouped extends HistogramBase {
 			plotHeader();
 		if (f.hasFooter)
 			plotFooter();
+		
 	}
 
 	protected void setCanvas() {
@@ -178,18 +180,18 @@ public class HistogramGrouped extends HistogramBase {
 		for (int i = 1; i < a.length; i++)
 			if (max < a[i])
 				max = a[i];
-		
-		double scale = (xValue[MIN]+xValue[MAX])/2;
-		double distance = (xValue[MAX]+xValue[MIN])/4;
+
+		double scale = (xValue[MIN] + xValue[MAX]) / 2;
+		double distance = (xValue[MAX] + xValue[MIN]) / 4;
 		double y = (yValue[MIN] + yScale[MIN]) / 1.7;
 		double h = (yScale[MAX] - yScale[MIN]) / 100;
 		double w = h * ((xScale[MAX] - xScale[MIN]) / (yScale[MAX] - yScale[MIN]));
 		for (int i = 0; i < g; i++) {
-			double x = scale + (distance*(i-g/2));
+			double x = scale + (distance * (i - g / 2));
 			StdDraw.setPenColor(this.g.groupedColor[i]);
 			StdDraw.filledRectangle(x, y, w, h);
 			String text = d.groupMembers[i];
-			double push = text.length()*1.0/4;
+			double push = text.length() * 1.0 / 4;
 			StdDraw.text(x + push, y, text);
 		}
 	}
@@ -276,6 +278,19 @@ public class HistogramGrouped extends HistogramBase {
 			}
 		}
 
+	}
+
+	protected void plotSource() {
+		StdDraw.setPenColor(Color.BLACK);
+		StdDraw.setFont(f.sourceFont);
+		if (f.hasSource) {
+			
+			double x = 0.05 * (xScale[MIN] + xValue[MIN]);
+			double y = 0.6 * (yValue[MIN] + yScale[MIN]);
+			
+			StdDraw.text(x, y, "Source: "+d.source);
+			
+		}
 	}
 
 	GroupedColor g = new GroupedColor();
