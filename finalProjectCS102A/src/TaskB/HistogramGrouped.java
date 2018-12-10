@@ -249,21 +249,7 @@ public class HistogramGrouped extends HistogramBase {
 			} else {
 				for (int i = 0; i < n; i++) {
 					try {
-					switch (i % (d.groupNumber+2)) {
-					case 1:
-						StdDraw.setPenColor(f.groupedColor[0]);
-						break;
-					case 2:
-						StdDraw.setPenColor(f.groupedColor[1]);
-						break;
-					case 3:
-						StdDraw.setPenColor(f.groupedColor[2]);
-						break;
-					case 4:
-						StdDraw.setPenColor(f.groupedColor[3]);
-					default:
-						break;
-					}
+						StdDraw.setPenColor(f.groupedColor[(i % (d.groupNumber+2))-1]);
 					}catch(ArrayIndexOutOfBoundsException e) {}
 					StdDraw.filledRectangle(i, v.get(i) / 2 + d.minValue, 0.38, v.get(i) / 2);
 				}
