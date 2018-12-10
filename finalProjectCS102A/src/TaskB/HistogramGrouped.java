@@ -176,10 +176,6 @@ public class HistogramGrouped extends HistogramBase {
 		int g = d.groupNumber;
 		StdDraw.setFont(f.legendsFont);
 		double[] a = d.values;
-		double max = a[0];
-		for (int i = 1; i < a.length; i++)
-			if (max < a[i])
-				max = a[i];
 
 		double scale = (xValue[MIN] + xValue[MAX]) / 2;
 		double distance = (xValue[MAX] + xValue[MIN]) / 4;
