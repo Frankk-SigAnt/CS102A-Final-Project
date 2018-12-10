@@ -19,10 +19,8 @@ public class Formats {
     public Color headerColor = Color.BLACK;
     public boolean hasFooter = true;
     public Color footerColor = Color.BLACK;
-    public boolean hasSource = true;
+    public boolean hasSource = false;
     public Color sourceColor = Color.BLACK;
-    
-    public DefaultBarColor dc = new DefaultBarColor();
     
     public Font rulerFont = new Font("Comic Sans MS", Font.PLAIN, 12);
     public Font keysFont = new Font("Comic Sans MS", Font.BOLD, 15);
@@ -33,11 +31,7 @@ public class Formats {
     
     public double[] headerLocation;
     public double[] footerLocation;
+    
+	Color[] groupedColor = null;
 }
 
-class DefaultBarColor{ // have a changing color when data increase,by wang
-	Color sBarColor = new Color(0,153,76);
-	Color mBarColor = new Color(128,255,0);
-	Color lBarColor = new Color(204,255,153);
-	Color xlBarColor = new Color(255,255,153);
-}

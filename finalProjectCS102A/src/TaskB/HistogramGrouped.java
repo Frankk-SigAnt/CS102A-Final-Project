@@ -90,7 +90,7 @@ public class HistogramGrouped extends HistogramBase {
 			plotHeader();
 		if (f.hasFooter)
 			plotFooter();
-		
+
 	}
 
 	protected void setCanvas() {
@@ -162,8 +162,8 @@ public class HistogramGrouped extends HistogramBase {
 		int n = v.size();
 		final double y = yValue[MIN] - 0.35 * rulerStep;
 		for (int i = 0; i < n; i++) {
-			if (i % 5 == 2) {
-				int k = i / 5;
+			if (i % (d.groupNumber + 2) == 2) {
+				int k = i / (d.groupNumber + 2);
 				if (d.keys[k].length() >= 1) {
 					double x = i;
 					StdDraw.text(x, y, d.keys[k]);
@@ -188,7 +188,7 @@ public class HistogramGrouped extends HistogramBase {
 		double w = h * ((xScale[MAX] - xScale[MIN]) / (yScale[MAX] - yScale[MIN]));
 		for (int i = 0; i < g; i++) {
 			double x = scale + (distance * (i - g / 2));
-			StdDraw.setPenColor(this.g.groupedColor[i]);
+			StdDraw.setPenColor(this.f.groupedColor[i]);
 			StdDraw.filledRectangle(x, y, w, h);
 			String text = d.groupMembers[i];
 			double push = text.length() * 1.0 / 4;
@@ -252,19 +252,23 @@ public class HistogramGrouped extends HistogramBase {
 				}
 			} else {
 				for (int i = 0; i < n; i++) {
-					switch (i % 5) {
+					try {
+					switch (i % (d.groupNumber+2)) {
 					case 1:
-						StdDraw.setPenColor(g.groupedColor[0]);
+						StdDraw.setPenColor(f.groupedColor[0]);
 						break;
 					case 2:
-						StdDraw.setPenColor(g.groupedColor[1]);
+						StdDraw.setPenColor(f.groupedColor[1]);
 						break;
 					case 3:
-						StdDraw.setPenColor(g.groupedColor[2]);
+						StdDraw.setPenColor(f.groupedColor[2]);
 						break;
+					case 4:
+						StdDraw.setPenColor(f.groupedColor[3]);
 					default:
 						break;
 					}
+					}catch(ArrayIndexOutOfBoundsException e) {}
 					StdDraw.filledRectangle(i, v.get(i) / 2 + d.minValue, 0.38, v.get(i) / 2);
 				}
 			}
@@ -284,25 +288,13 @@ public class HistogramGrouped extends HistogramBase {
 		StdDraw.setPenColor(Color.BLACK);
 		StdDraw.setFont(f.sourceFont);
 		if (f.hasSource) {
-			
 			double x = 0.05 * (xScale[MIN] + xValue[MIN]);
 			double y = 0.6 * (yValue[MIN] + yScale[MIN]);
-			
-			StdDraw.text(x, y, "Source: "+d.source);
-			
+			StdDraw.text(x, y, "Source: " + d.source);
 		}
 	}
 
-	GroupedColor g = new GroupedColor();
 	ArrayList<Double> v = new ArrayList<>();// values with Blanks
 }
 
-class GroupedColor {
-	Color[] groupedColor = new Color[3];
 
-	public GroupedColor() {
-		this.groupedColor[0] = new Color(233, 191, 89);
-		this.groupedColor[1] = new Color(164, 90, 123);
-		this.groupedColor[2] = new Color(107, 64, 110);
-	}
-}

@@ -1,0 +1,24 @@
+{
+"histograma" : {
+	"canvas" : {
+	},
+	
+	"formats" : {
+		"barsColor" : [[233, 191, 89],[204, 90, 90],[173, 85, 123],[142, 75, 126]]
+	},
+	
+	"data" : {
+		"header" : "The consuption of four types of energy",
+		"footer" : "The consuption of four types of energy in 2005,2010,2015",
+		"minValue" : 0.0,
+		"groupNumber" : 4,
+		"groupMembers" : ["Coal","Oil","Gas","Others"],
+		"keys" : ["2005","2010","2015"],
+		"values" : [
+		189231.16,46523.68,6272.86,19341.31,
+		249568.42,62752.75,14425.92,33900.91,
+		273849.49,78672.62,25364.4,52018.51
+		]
+	}
+}
+}
