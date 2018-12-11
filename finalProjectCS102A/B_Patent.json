@@ -1,0 +1,24 @@
+{
+"histograma" : {
+	"canvas" : {
+	},
+	
+	"formats" : {
+		"barsColor" : [[225, 115, 40],[232, 177, 84],[229, 230, 196]]
+	},
+	
+	"data" : {
+		"header" : "The Numbers of patent in four countries",
+		"footer" : "The Numbers of patent in four countries in 2006,2010,2015",
+		"minValue" : 0.0,
+		"groupNumber" : 3,
+		"groupMembers" : ["China","America","Japan"],
+		"keys" : ["2006","2010","2015"],
+		"values" : [
+		268002,221784,347060,
+		814825,241977,290081,
+		1718192,288335,258839
+		]
+	}
+}
+}

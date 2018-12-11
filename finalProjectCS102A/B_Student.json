@@ -1,0 +1,25 @@
+{
+"histograma" : {
+	"canvas" : {
+	},
+	
+	"formats" : {
+		"barsColor" : [[225, 115, 40],[232, 177, 84],[229, 230, 196]]
+	},
+	
+	"data" : {
+		"header" : "The Numbers of Students in four cities",
+		"footer" : "The Numbers of Students in four cities",
+		"minValue" : 0.0,
+		"groupNumber" : 4,
+		"groupMembers" : ["Beijing","Shanghai","Guangzhou","Shenzhen"],
+		"keys" : ["2006","2009","2012","2015"],
+		"values" : [
+		59.1243,50.6596,93.9208,7.557,
+		58.6685,51.2809,79.6006,6.6952,
+		56.5779,46.6333,61.9442,5.122,
+		60.3557,51.1623,104.3221,9.0112
+		]
+	}
+}
+}
