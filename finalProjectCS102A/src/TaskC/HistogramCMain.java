@@ -223,6 +223,7 @@ public class HistogramCMain {
     }
 
     private static AnimationData getDataFrom(JsonObject obj) {
+    	
         AnimationData data = new AnimationData();
         data.header = obj.getString("header", "");
         data.footer = obj.getString("footer", "");
@@ -249,10 +250,10 @@ public class HistogramCMain {
         		data.allValues[j][i] = allValuesTemp[i][j];
         	}
         }
-        }catch(ArrayIndexOutOfBoundsException e) {}
+        }catch(ArrayIndexOutOfBoundsException e) {e.printStackTrace();}
         
         data.values = data.allValues[0];
-        
+        data.generateMap();
         return data;
     }
 

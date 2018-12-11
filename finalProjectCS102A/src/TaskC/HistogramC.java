@@ -18,7 +18,7 @@ public class HistogramC extends HistogramBase {
         f.margins[SOUTH] = 0.2;
         f.margins[WEST] = 0.14;
         f.margins[EAST] = 0.14;
-
+        
         setHistogramParameters();
     }
 
