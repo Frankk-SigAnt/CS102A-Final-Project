@@ -9,15 +9,14 @@ public class HistogramCMain {
             System.err.println("JSON file name required in argument.");
         }
         StdDraw.enableDoubleBuffering();
-        h = createHistogramFrom(args[0]);
+        createHistogramFrom(args[0]);
         h.draw();
         StdDraw.show();
         // iterateHistogram();
     }
 
-    private static HistogramC createHistogramFrom(String string) {
+    private static void createHistogramFrom(String string) {
         // TODO Auto-generated method stub
-        return null;
     }
 
     private static void iterateHistogram() {
