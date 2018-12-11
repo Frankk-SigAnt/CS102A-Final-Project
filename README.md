@@ -14,9 +14,9 @@ Final project for CS102A, SUSTech (Fall 2018)
 
 ### Task B
  - [x] **B.1** Create base class for both types (grouped & stacked) of bar charts
- - [ ] **B.2** Customize data format in JSON files
- - [ ] **B.3** Implement necessary methods for `draw()`
- - [ ] **B.4** Define main class(es) for execution
+ - [x] **B.2** Customize data format in JSON files
+ - [x] **B.3** Implement necessary methods for `draw()`
+ - [x] **B.4** Define main class(es) for execution
 
 ### Task C
  - [ ] **C.1** Define class `HistogramC` and main class to plot horizontal bar charts
