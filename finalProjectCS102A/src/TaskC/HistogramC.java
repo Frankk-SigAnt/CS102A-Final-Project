@@ -182,7 +182,12 @@ public class HistogramC extends HistogramBase {
 
     @Override
     protected void plotFooter() {
-        // TODO May plot year number?
+        plotYearNumber();
+    }
+
+    private void plotYearNumber() {
+        // TODO Auto-generated method stub
+        
     }
 
     // These methods will not be used in Task C.
