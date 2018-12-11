@@ -76,10 +76,21 @@ public class HistogramStackedTest {
         return s;
     }
 
+    private static Color[] toColorArray(JsonArray jsa) {
+    	Color[] c = new Color[jsa.size()];
+    	int[][] temp = new int[jsa.size()][];
+    	for(int i = 0; i < jsa.size(); i++) {
+    		temp[i] = toIntArray(jsa.getJsonArray(i));
+    		c[i] = new Color(temp[i][0],temp[i][1],temp[i][2]);
+    	}
+    	return c;
+    }
     private static Color getColorFrom(JsonArray jsa) {
         int[] c = toIntArray(jsa);
         return new Color(c[0], c[1], c[2]);
     }
+    
+    
     //add for font getting
     private static Font getFontFrom(JsonArray jsa) {
     	String[] f = toStringArray(jsa);
@@ -140,6 +151,9 @@ public class HistogramStackedTest {
         if (obj.containsKey("hasfooter")) {
             fmts.hasFooter = obj.getBoolean("hasfooter");
         }
+        if (obj.containsKey("hasSource")) {
+            fmts.hasSource = obj.getBoolean("hasSource");
+        }
         if (obj.containsKey("footercolor")) {
             fmts.footerColor = getColorFrom(obj.getJsonArray("footercolor"));
         }
@@ -163,6 +177,9 @@ public class HistogramStackedTest {
         if (obj.containsKey("headerLocation")) {
             fmts.headerLocation = toDoubleArray(obj.getJsonArray("headerLocation"));
         }
+        if (obj.containsKey("barsColor")) {
+            fmts.groupedColor = toColorArray(obj.getJsonArray("barsColor"));
+        }
         
         return fmts;
     }
@@ -177,6 +194,11 @@ public class HistogramStackedTest {
         }
         data.keys = toStringArray(obj.getJsonArray("keys"));
         data.values = toDoubleArray(obj.getJsonArray("values"));
+        if(obj.containsKey("groupNumber"))
+        	data.groupNumber = obj.getJsonNumber("groupNumber").intValue();
+        if(obj.containsKey("groupMembers"))
+        	data.groupMembers = toStringArray(obj.getJsonArray("groupMembers"));
+        
         return data;
     }
 }
