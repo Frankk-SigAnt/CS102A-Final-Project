@@ -32,6 +32,14 @@ public class Formats {
     public double[] headerLocation;
     public double[] footerLocation;
     
-	Color[] groupedColor = null;
+	private Color[] groupedColor = null;
+
+	public Color[] getGroupedColor() {
+		return groupedColor;
+	}
+
+	public void setGroupedColor(Color[] groupedColor) {
+		this.groupedColor = groupedColor;
+	}
 }
 

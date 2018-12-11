@@ -6,12 +6,13 @@ import TaskB.HistogramBase;
 import TaskB.HistogramData;
 
 public class HistogramC extends HistogramBase {
-
+	protected AnimationData a;
     private static final int TOTAL_BARS = 16;
 
-    public HistogramC(Canvas c, Formats f, HistogramData d) {
-        super(c, f, d);
-
+    public HistogramC(Canvas c, Formats f, AnimationData a) {
+    	super(c,f);
+    	this.a = a;
+        
         // TODO Margins data may need changes.
         f.margins[NORTH] = 0.2;
         f.margins[SOUTH] = 0.2;
@@ -24,10 +25,10 @@ public class HistogramC extends HistogramBase {
     @Override
     protected void setHistogramParameters() {
         yValue[MIN] = -1;
-        yValue[MAX] = d.values.length;
+        yValue[MAX] = a.values.length;
 
-        xValue[MIN] = d.minValue;
-        xValue[MAX] = d.values[d.mapIndex(0)];
+        xValue[MIN] = a.minValue;
+        xValue[MAX] = a.values[a.mapIndex(0)];
 
         double max = xValue[MAX];
         double span = max - xValue[MIN];
@@ -144,8 +145,8 @@ public class HistogramC extends HistogramBase {
         // Assume that the bars are filled and have no frames.
         // TODO Customize color for each data.
         for (int j = 0; j < TOTAL_BARS; ++j) {
-            int index = d.mapIndex(j);
-            double halfWidth = d.values[index] / 2;
+            int index = a.mapIndex(j);
+            double halfWidth = a.values[index] / 2;
             // TODO Linear interpolation.
             double yPosition = TOTAL_BARS - j; // what looks like `position[index]`
             StdDraw.setPenColor(f.barFillColor); // what looks like `color[index]`
@@ -158,12 +159,12 @@ public class HistogramC extends HistogramBase {
         StdDraw.setFont(f.keysFont);
         // TODO Customize color for each data.
         for (int j = 0; j < TOTAL_BARS; ++j) {
-            int index = d.mapIndex(j);
+            int index = a.mapIndex(j);
             StdDraw.setPenColor(f.keyColor); // what looks like 'color[index]`
-            double xPosition = xValue[MIN] - d.keys[index].length() / 2 - 0.1; // Not tested!
+            double xPosition = xValue[MIN] - a.keys[index].length() / 2 - 0.1; // Not tested!
             // TODO Linear interpolation.
             double yPosition = TOTAL_BARS - j; // what looks like `position[index]`
-            StdDraw.text(xPosition, yPosition, d.keys[index]);
+            StdDraw.text(xPosition, yPosition, a.keys[index]);
         }
     }
 
@@ -174,9 +175,9 @@ public class HistogramC extends HistogramBase {
         if (f.headerLocation == null) {
             double x = .5 * (xScale[MIN] + xScale[MAX]);
             double y = .5 * (yValue[MAX] + yScale[MAX]);
-            StdDraw.text(x, y, d.header);
+            StdDraw.text(x, y, a.header);
         } else {
-            StdDraw.text(f.headerLocation[0], f.headerLocation[1], d.header);
+            StdDraw.text(f.headerLocation[0], f.headerLocation[1], a.header);
         }
     }
 

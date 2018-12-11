@@ -184,7 +184,7 @@ public class HistogramGrouped extends HistogramBase {
 		double w = h * ((xScale[MAX] - xScale[MIN]) / (yScale[MAX] - yScale[MIN]));
 		for (int i = 0; i < g; i++) {
 			double x = scale + (distance * (i - g / 2));
-			StdDraw.setPenColor(this.f.groupedColor[i]);
+			StdDraw.setPenColor(this.f.getGroupedColor()[i]);
 			StdDraw.filledRectangle(x, y, w, h);
 			String text = d.groupMembers[i];
 			double push = text.length() * 1.0 / 4;
@@ -249,7 +249,7 @@ public class HistogramGrouped extends HistogramBase {
 			} else {
 				for (int i = 0; i < n; i++) {
 					try {
-						StdDraw.setPenColor(f.groupedColor[(i % (d.groupNumber+2))-1]);
+						StdDraw.setPenColor(f.getGroupedColor()[(i % (d.groupNumber+2))-1]);
 					}catch(ArrayIndexOutOfBoundsException e) {}
 					StdDraw.filledRectangle(i, v.get(i) / 2 + d.minValue, 0.38, v.get(i) / 2);
 				}

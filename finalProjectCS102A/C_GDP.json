@@ -4,6 +4,11 @@
 	},
 
 	"formats" : {
+		"barsColor":[
+			[220,20,60],[240,230,140],[154,205,50],[50,205,50],[32,178,170],[100,149,237],
+			[135,206,235],[138,43,226],[139,0,139],[221,160,221],[219,112,147],
+			[255,235,205],[210,105,30],[176,196,222],[211,211,211],[240,255,240]
+		]
 	},
 
 	"data" : {
@@ -13,8 +18,7 @@
 		"keys" : [
 			"Beijing","Tianjin","Hebei","Shanxi","Inner Mongolia","Liaoning","Jilin","Heilongjiang","Shanghai","Jiangsu","Zhejiang","Anhui","Fujian","Jinagxi","Shandong","Henan","Hubei","Hunan","Guangdong","Guangxi","Hainan","Chongqing","Sichuan","Guizhou","Yunnan","Xizang","Shanxi","Gansu","Qinghai","Ningxia","Xinjiang"
 		],
-
-		"axis" : [
+		"years" : [
 			"1993","1994","1995","1996","1997","1998","1999","2000","2001","2002","2003","2004","2005","2006","2007","2008","2009","2010","2011","2012","2013","2014","2015","2016","2017"
 		],
 

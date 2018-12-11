@@ -178,7 +178,7 @@ public class HistogramStackedTest {
             fmts.headerLocation = toDoubleArray(obj.getJsonArray("headerLocation"));
         }
         if (obj.containsKey("barsColor")) {
-            fmts.groupedColor = toColorArray(obj.getJsonArray("barsColor"));
+            fmts.setGroupedColor(toColorArray(obj.getJsonArray("barsColor")));
         }
         
         return fmts;

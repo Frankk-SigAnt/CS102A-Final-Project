@@ -24,6 +24,14 @@ public abstract class HistogramBase {
         xScale = new double[2];
         yScale = new double[2];
     }
+    public HistogramBase(Canvas c, Formats f) {
+    	this.c = c;
+    	this.f = f;
+    	xValue = new double[2];
+    	yValue = new double[2];
+    	xScale = new double[2];
+    	yScale = new double[2];
+    }
 
     protected void setHistogramParameters() {
         double[] a = d.values;
