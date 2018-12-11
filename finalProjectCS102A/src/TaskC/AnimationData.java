@@ -54,7 +54,7 @@ class RankingMap {
     private void sort(double[] values, int lBound, int rBound) {
         // Boundary condition: the size of the range is less than 1, 
         // then the range is sorted.
-        if (lBound >= rBound - 1) {
+        if (lBound >= (rBound - 1)) {
             return;
         }
 
@@ -75,6 +75,7 @@ class RankingMap {
                 // Recursive to solve sub-problem.
                 sort(values, lBound, lIndex);
                 sort(values, lIndex, rBound);
+                return;
             }
             else {
                 double t = values[lIndex];

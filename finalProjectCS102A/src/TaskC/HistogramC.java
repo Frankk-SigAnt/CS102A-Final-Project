@@ -149,7 +149,7 @@ public class HistogramC extends HistogramBase {
             double halfWidth = a.values[index] / 2;
             // TODO Linear interpolation.
             double yPosition = TOTAL_BARS - j; // what looks like `position[index]`
-            StdDraw.setPenColor(f.barFillColor); // what looks like `color[index]`
+            StdDraw.setPenColor(f.getGroupedColor(index)); // what looks like `color[index]`
             StdDraw.filledRectangle(halfWidth, yPosition, halfWidth, halfHeight);
         }
     }
@@ -160,7 +160,7 @@ public class HistogramC extends HistogramBase {
         // TODO Customize color for each data.
         for (int j = 0; j < TOTAL_BARS; ++j) {
             int index = a.mapIndex(j);
-            StdDraw.setPenColor(f.keyColor); // what looks like 'color[index]`
+            StdDraw.setPenColor(f.getGroupedColor(index)); // what looks like 'color[index]`
             double xPosition = xValue[MIN] - a.keys[index].length() / 2 - 0.1; // Not tested!
             // TODO Linear interpolation.
             double yPosition = TOTAL_BARS - j; // what looks like `position[index]`

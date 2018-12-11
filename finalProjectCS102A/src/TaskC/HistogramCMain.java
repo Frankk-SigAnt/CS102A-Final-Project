@@ -26,7 +26,7 @@ public class HistogramCMain {
             System.err.println("JSON file name required in argument.");
         }
         StdDraw.enableDoubleBuffering();
-        createHistogramCFrom(args[0]);
+        h = createHistogramCFrom(args[0]);
         h.draw();
         StdDraw.show();
         // iterateHistogram();

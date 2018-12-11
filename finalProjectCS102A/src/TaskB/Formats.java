@@ -37,6 +37,10 @@ public class Formats {
 	public Color[] getGroupedColor() {
 		return groupedColor;
 	}
+	
+	public Color getGroupedColor(int index) {
+	    return groupedColor[index];
+	}
 
 	public void setGroupedColor(Color[] groupedColor) {
 		this.groupedColor = groupedColor;
