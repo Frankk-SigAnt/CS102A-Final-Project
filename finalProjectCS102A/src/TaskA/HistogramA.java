@@ -12,7 +12,7 @@ class Canvas {
 }
 
 class Formats {
-    double[] margins = { 0.15, 0.15, 0.1, 0.05 }; // NORTH, SOUTH, WEST, EAST
+    double[] margins = { 0.15, 0.15, 0.1, 0.1}; // NORTH, SOUTH, WEST, EAST
     boolean isBarFilled = true;
     Color barFillColor = null;//null by default
     boolean hasBarFrame = false;
@@ -278,6 +278,12 @@ public class HistogramA {
             double y = yValue[MIN] + i * rulerStep;
             mark[i] = numberForRuler(y);
             StdDraw.line(x0, y, x1, y);
+        }
+        int len = maxMarkLength(mark);
+        final double xs = xScale[MAX] + 0.7 * (xValue[MAX] - xScale[MAX]);
+        for (int i = 0; i <= rulerGrade; i++) {
+            double y = yValue[MIN] + i * rulerStep;
+            StdDraw.text(xs, y, String.format("%-" + len + "s", mark[i]));
         }
     } // DONE
 
