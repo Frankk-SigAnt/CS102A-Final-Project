@@ -28,17 +28,13 @@ public class HistogramCMain {
         StdDraw.enableDoubleBuffering();
         h = createHistogramCFrom(args[0]);
         h.draw();
-        StdDraw.show();
-        // iterateHistogram();
+        iterateHistogram();
     }
 
     private static void iterateHistogram() {
-        for (;;) {
-            StdDraw.clear();
-            // TODO Iteration
+        for (int i = 1; i < h.a.allValues.length; ++i) {
+            h.a.values = h.a.allValues[i];
             h.draw();
-            StdDraw.show();
-            StdDraw.pause(20);
         }
     }
     

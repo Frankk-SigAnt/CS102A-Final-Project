@@ -60,10 +60,15 @@ public class HistogramC extends HistogramBase {
             break;
         }
     }
+    
+    static boolean isFirstFrame = false;
 
     @Override
     public void draw() {
-        setCanvas();
+        if (isFirstFrame)
+            setCanvas();
+        else
+            StdDraw.clear();
         plotRuler();
         plotBars();
         plotKeys();
@@ -71,6 +76,7 @@ public class HistogramC extends HistogramBase {
             plotHeader();
         if (f.hasFooter)
             plotFooter();
+        StdDraw.show();
     }
 
     @Override
