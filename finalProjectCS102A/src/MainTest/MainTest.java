@@ -4,6 +4,7 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
+import TaskA.HistogramATest;
 import TaskB.HistogramGroupedTest;
 import TaskB.HistogramStackedTest;
 
@@ -33,36 +34,34 @@ class TestFrame extends JFrame {
 		
 		buttonPanel = new JPanel();
 		
-		Container container = getContentPane();
-		
         buttonPanel.setLayout(new GridLayout(4,4,30,30));
 
-        A1_Given = new JButton("A_Given");
+        A1_Given = new JButton("A1_Given_FontTest");
         A1_Given.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
+				new HistogramATest("A1_FontTest.json");
 			}
         });
-        A1_FontTest = new JButton("A1_FontTest");
-        A1_FontTest.addActionListener(new ActionListener() {
+        A1_DefaultTest = new JButton("A1_DefaultTest");
+        A1_DefaultTest.addActionListener(new ActionListener() {
         	@Override
         	public void actionPerformed(ActionEvent e) {
-        		// TODO Auto-generated method stub
+        		new HistogramATest("A1_DefaultTest.json");
         	}
         });
-        A2_Given = new JButton("A_Given");
+        A2_Given = new JButton("A2_Given");
         A2_Given.addActionListener(new ActionListener() {
         	@Override
         	public void actionPerformed(ActionEvent e) {
-        		// TODO Auto-generated method stub
+        		new HistogramATest("A2_Given.json");
         	}
         });
         A2_DefaultTest = new JButton("A2_DefaultTest");
         A2_DefaultTest.addActionListener(new ActionListener() {
         	@Override
         	public void actionPerformed(ActionEvent e) {
-        		// TODO Auto-generated method stub
+        		new HistogramATest("A2_DefaultTest.json");
         	}
         });
         B_Grouped_Price = new JButton("B_Grouped_Price");
@@ -113,7 +112,7 @@ class TestFrame extends JFrame {
         });
         
         buttonPanel.add(A1_Given);
-        buttonPanel.add(A1_FontTest);
+        buttonPanel.add(A1_DefaultTest);
         buttonPanel.add(A2_Given);
         buttonPanel.add(A2_DefaultTest);
         buttonPanel.add(B_Grouped_Price);
@@ -130,7 +129,7 @@ class TestFrame extends JFrame {
 	
 	
 	private JButton A1_Given;
-	private JButton A1_FontTest;
+	private JButton A1_DefaultTest;
 	private JButton A2_Given;
 	private JButton A2_DefaultTest;
 	private JButton B_Grouped_Price;

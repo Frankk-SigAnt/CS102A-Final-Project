@@ -6,8 +6,8 @@ import java.io.*;
 import javax.json.*;
 
 public class HistogramATest {
-    public static void main(String[] args) {
-        HistogramA h = createHistogramAFrom(args[0]);
+    public HistogramATest(String file) {
+        HistogramA h = createHistogramAFrom(file);
         h.draw();
     }
 
