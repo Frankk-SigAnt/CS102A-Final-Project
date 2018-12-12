@@ -21,7 +21,7 @@ public class HistogramC extends HistogramBase {
         
         setHistogramParameters();
     }
-
+    
     @Override
     protected void setHistogramParameters() {
         yValue[MIN] = -1;
