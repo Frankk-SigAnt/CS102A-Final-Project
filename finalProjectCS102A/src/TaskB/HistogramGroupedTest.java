@@ -6,8 +6,8 @@ import java.io.*;
 import javax.json.*;
 
 public class HistogramGroupedTest {
-    public static void main(String[] args) {
-        HistogramGrouped h = createHistogramGroupedFrom(args[0]);
+    public HistogramGroupedTest(String filename) {
+        HistogramGrouped h = createHistogramGroupedFrom(filename);
         h.draw();
     }
 
