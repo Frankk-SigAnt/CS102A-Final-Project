@@ -21,12 +21,9 @@ public class HistogramCMain {
     
     static HistogramC h;
 
-    public static void main(String[] args) {
-        if (args.length == 0) {
-            System.err.println("JSON file name required in argument.");
-        }
+    public HistogramCMain(String file) {
         StdDraw.enableDoubleBuffering();
-        h = createHistogramCFrom(args[0]);
+        h = createHistogramCFrom(file);
         h.draw();
         iterateHistogram();
     }

@@ -7,6 +7,7 @@ import javax.swing.*;
 import TaskA.HistogramATest;
 import TaskB.HistogramGroupedTest;
 import TaskB.HistogramStackedTest;
+import TaskC.HistogramCMain;
 
 
 public class MainTest {
@@ -99,7 +100,7 @@ class TestFrame extends JFrame {
         C_GDP.addActionListener(new ActionListener() {
         	@Override
         	public void actionPerformed(ActionEvent e) {
-        		// TODO Auto-generated method stub
+        		new HistogramCMain("C_GDP.json");
         	}
         });
         
@@ -107,7 +108,7 @@ class TestFrame extends JFrame {
         C_Population.addActionListener(new ActionListener() {
         	@Override
         	public void actionPerformed(ActionEvent e) {
-        		// TODO Auto-generated method stub
+        		new HistogramCMain("C_Population.json");
         	}
         });
         
