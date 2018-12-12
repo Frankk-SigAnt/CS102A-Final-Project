@@ -6,8 +6,8 @@ import java.io.*;
 import javax.json.*;
 
 public class HistogramStackedTest {
-    public static void main(String[] args) {
-        HistogramStacked h = createHistogramStackedFrom(args[0]);
+    public HistogramStackedTest(String file) {
+        HistogramStacked h = createHistogramStackedFrom(file);
         h.draw();
     }
 

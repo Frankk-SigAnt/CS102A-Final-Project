@@ -4,6 +4,9 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
+import TaskB.HistogramGroupedTest;
+import TaskB.HistogramStackedTest;
+
 
 public class MainTest {
 	
@@ -66,30 +69,30 @@ class TestFrame extends JFrame {
         B_Grouped_Price.addActionListener(new ActionListener() {
         	@Override
         	public void actionPerformed(ActionEvent e) {
-        		// TODO Auto-generated method stub
+        		new HistogramGroupedTest("B_Price.json");
         	}
         });
         B_Grouped_Energy = new JButton("B_Grouped_Energy");
         B_Grouped_Energy.addActionListener(new ActionListener() {
         	@Override
         	public void actionPerformed(ActionEvent e) {
-        		// TODO Auto-generated method stub
+        		new HistogramGroupedTest("B_Energy.json");
         	}
         });
         
-        B_Stacked_Price = new JButton("B_Stacked_Price");
-        B_Stacked_Price.addActionListener(new ActionListener() {
+        B_Stacked_Patent = new JButton("B_Stacked_Patent");
+        B_Stacked_Patent.addActionListener(new ActionListener() {
         	@Override
         	public void actionPerformed(ActionEvent e) {
-        		// TODO Auto-generated method stub
+        		new HistogramStackedTest("B_Patent.json");
         	}
         });
         
-        B_Stacked_Energy = new JButton("B_Stacked_Energy");
-        B_Stacked_Energy.addActionListener(new ActionListener() {
+        B_Stacked_Student = new JButton("B_Stacked_Student");
+        B_Stacked_Student.addActionListener(new ActionListener() {
         	@Override
         	public void actionPerformed(ActionEvent e) {
-        		// TODO Auto-generated method stub
+        		new HistogramStackedTest("B_Student.json");
         	}
         });
         
@@ -114,9 +117,9 @@ class TestFrame extends JFrame {
         buttonPanel.add(A2_Given);
         buttonPanel.add(A2_DefaultTest);
         buttonPanel.add(B_Grouped_Price);
-        buttonPanel.add(B_Stacked_Price);
+        buttonPanel.add(B_Stacked_Patent);
         buttonPanel.add(B_Grouped_Energy);
-        buttonPanel.add(B_Stacked_Energy);
+        buttonPanel.add(B_Stacked_Student);
         buttonPanel.add(C_GDP);
         buttonPanel.add(C_Population);
         
@@ -131,9 +134,9 @@ class TestFrame extends JFrame {
 	private JButton A2_Given;
 	private JButton A2_DefaultTest;
 	private JButton B_Grouped_Price;
-	private JButton B_Stacked_Price;
+	private JButton B_Stacked_Patent;
 	private JButton B_Grouped_Energy;
-	private JButton B_Stacked_Energy;
+	private JButton B_Stacked_Student;
 	private JButton C_GDP;
 	private JButton C_Population;
 }
