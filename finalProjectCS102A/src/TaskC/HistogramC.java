@@ -77,6 +77,7 @@ public class HistogramC extends HistogramBase {
         if (f.hasFooter)
             plotFooter();
         StdDraw.show();
+        StdDraw.pause(50);
     }
 
     @Override

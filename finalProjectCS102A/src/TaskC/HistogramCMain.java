@@ -34,6 +34,7 @@ public class HistogramCMain {
     private static void iterateHistogram() {
         for (int i = 1; i < h.a.allValues.length; ++i) {
             h.a.values = h.a.allValues[i];
+            h.a.generateMap();
             h.draw();
         }
     }
