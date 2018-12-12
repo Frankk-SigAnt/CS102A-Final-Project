@@ -21,15 +21,15 @@
       "hasrightruler" : true,
       "keycolor" : [200, 200, 0],
       "hasheader" : true,
-      "headercolor" : [100, 100, 100],
+      "headercolor" : [0, 100, 100],
       "hasfooter" : true,
       "footercolor" : [0, 200, 200],
       "rulerFont" : ["consolas", "ITALIC", "12"],
       "keysFont" : ["consolas", "ITALIC", "12"],
       "headerFont": ["consolas","ITALIC", "12"],
       "footerFont" : ["consolas","ITALIC", "12"],
-      "headerLocation" : [50,1012500.125],
-      "footerLocation" : [10,1000000]
+      "headerLocation" : [50,230000],
+      "footerLocation" : [15,230000]
    },
      
    "data" : { 
