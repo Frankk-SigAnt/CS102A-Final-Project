@@ -279,11 +279,21 @@ public class HistogramA {
             mark[i] = numberForRuler(y);
             StdDraw.line(x0, y, x1, y);
         }
-        int len = maxMarkLength(mark);
-        final double xs = xScale[MAX] + 0.7 * (xValue[MAX] - xScale[MAX]);
+        double max = mark[0].length();
+        for (int i = 0; i <= rulerGrade; i++) {
+        	if (max < mark[i].length()) max = mark[i].length();
+        }
+        String[] text = new String[mark.length];
+        for (int i = 0; i <= rulerGrade; i++) {
+        	text[i] = mark[i];
+        	while (true) {
+        		if (text[i].length() < max)	text[i] += " ";
+        		else break;
+        	}
+        }
         for (int i = 0; i <= rulerGrade; i++) {
             double y = yValue[MIN] + i * rulerStep;
-            StdDraw.text(xs, y, String.format("%-" + len + "s", mark[i]));
+            StdDraw.text(x1 + max / 3, y, text[i]);
         }
     } // DONE
 
