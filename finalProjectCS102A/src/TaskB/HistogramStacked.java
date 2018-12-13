@@ -217,6 +217,15 @@ public class HistogramStacked extends HistogramBase {
 		StdDraw.setXscale(c.xScale[MIN], c.xScale[MAX]);
 		StdDraw.setYscale(c.yScale[MIN], c.yScale[MAX]);
 	}
+	
+	/*StdDraw.setPenColor(f.rulerColor);
+    final double x0 = xValue[MAX] - 0.05, x1 = xValue[MAX] + 0.05;
+    String[] mark = new String[rulerGrade + 1];
+    for (int i = 0; i <= rulerGrade; i++) {
+        double y = yValue[MIN] + i * rulerStep;
+        mark[i] = numberForRuler(y);
+        StdDraw.line(x0, y, x1, y);
+    }*/
 
 	@Override
 	protected void plotRuler() {
@@ -225,11 +234,12 @@ public class HistogramStacked extends HistogramBase {
 
 		StdDraw.setFont(f.rulerFont);
 		StdDraw.setPenColor(f.rulerColor);
-		final double x0 = xValue[MIN] - 0.05, x1 = xValue[MAX];
+		final double x0 = xValue[MIN] - 0.05, x1 = xValue[MAX], x2 = xValue[MIN];
 		String[] mark = new String[rulerGrade + 1];
 		for (int i = 0; i <= rulerGrade; i++) {
 			double y = yValue[MIN] + i * rulerStep;
 			mark[i] = numberForRuler(y);
+			StdDraw.line(x0, y, x2, y);
 		}
 		StdDraw.line(x0, yValue[MIN], x1, yValue[MIN]);
 		int len = maxMarkLength(mark);
