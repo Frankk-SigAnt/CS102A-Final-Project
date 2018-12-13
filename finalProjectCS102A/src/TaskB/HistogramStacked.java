@@ -139,25 +139,35 @@ public class HistogramStacked extends HistogramBase {
 		}
 
 	}
-
+    
     @Override
     protected void plotLegends() {
-		int g = d.groupNumber;
-		StdDraw.setFont(f.legendsFont);
-		double[] a = d.values;
-		
-		double scale = (xValue[MIN]+xValue[MAX])/2;
-		double distance = (xValue[MAX]+xValue[MIN])/4;
-		double y = (yValue[MIN] + yScale[MIN]) / 1.7;
-		double h = (yScale[MAX] - yScale[MIN]) / 100;
+    	StdDraw.setFont(f.legendsFont);
+    	double frameHeight = yValue[MAX] / 3;
+    	double halfYPosition = yValue[MAX] - frameHeight / 3;
+    	double bottom = halfYPosition - 0.5 * frameHeight;
+    	double step = frameHeight / (d.groupNumber + 1);
+    	double h = (yScale[MAX] - yScale[MIN]) / 100;
 		double w = h * ((xScale[MAX] - xScale[MIN]) / (yScale[MAX] - yScale[MIN]));
-		for (int i = 0; i < g; i++) {
-			double x = scale + (distance*(i-g/2)) + 0.5;
-			StdDraw.setPenColor(this.f.getGroupedColor()[i]);
-			StdDraw.filledRectangle(x, y, w, h);
-			String text = d.groupMembers[i];
-			double push = text.length()*1.0/9;
-			StdDraw.text(x + push, y, text);
+		StdDraw.rectangle(xValue[MIN] + 0.2 + 1.05, halfYPosition, 1.05, 0.5 * frameHeight);
+		for (int i = 1; i <= d.groupNumber; i++) {
+			if (f.isBarFilled) {
+				if (f.barFillColor != null) {
+					StdDraw.setPenColor(f.barFillColor);
+					StdDraw.filledRectangle(xValue[MIN] + 0.3 + 0.2, bottom + i * step, w, h);
+					String text = d.groupMembers[i - 1];
+					double push = text.length()*1.0/9 + 0.1;
+					StdDraw.text(xValue[MIN] + 0.3 + 0.2 + push, bottom + i * step, text);
+				} else {
+					try {
+						StdDraw.setPenColor(this.f.getGroupedColor()[i - 1]);
+					}catch(ArrayIndexOutOfBoundsException e) {}
+					StdDraw.filledRectangle(xValue[MIN] + 0.3 + 0.2, bottom + i * step, w, h);
+					String text = d.groupMembers[i - 1];
+					double push = text.length()*1.0/9 + 0.1;
+					StdDraw.text(xValue[MIN] + 0.3 + 0.2 + push, bottom + i * step, text);
+				}
+			}
 		}
 	}
 
@@ -165,6 +175,7 @@ public class HistogramStacked extends HistogramBase {
 	public void draw() {
 		setCanvas();
 		plotRuler();
+		plotLeftRuler();
 		plotBars();
 		plotKeys();
 		plotLegends();
@@ -219,14 +230,20 @@ public class HistogramStacked extends HistogramBase {
 		for (int i = 0; i <= rulerGrade; i++) {
 			double y = yValue[MIN] + i * rulerStep;
 			mark[i] = numberForRuler(y);
-			StdDraw.line(x0, y, x1, y);
 		}
+		StdDraw.line(x0, yValue[MIN], x1, yValue[MIN]);
 		int len = maxMarkLength(mark);
 		final double xs = xScale[MIN] + 0.7 * (xValue[MIN] - xScale[MIN]);
 		for (int i = 0; i <= rulerGrade; i++) {
 			double y = yValue[MIN] + i * rulerStep;
 			StdDraw.text(xs, y, String.format("%" + len + "s", mark[i]));
 		}
+	}
+	
+	protected void plotLeftRuler() {
+		final double x0 = xValue[MIN] - 0.05;
+		final double y0 = yValue[MIN]		, y1 = yValue[MAX];
+		StdDraw.line(x0, y0, x0, y1);
 	}
 
 	@Override
@@ -316,7 +333,7 @@ public class HistogramStacked extends HistogramBase {
 		StdDraw.setPenColor(Color.BLACK);
 		StdDraw.setFont(f.sourceFont);
 		if (f.hasSource) {
-			double x = 0.05 * (xScale[MIN] + xValue[MIN]);
+			double x = 0.5 * (xScale[MIN] + xValue[MIN]) + 8;
 			double y = 0.6 * (yValue[MIN] + yScale[MIN]);
 			StdDraw.text(x, y, "Source: " + d.source);
 		}
