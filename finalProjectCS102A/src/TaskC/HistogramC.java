@@ -1,5 +1,8 @@
 package TaskC;
 
+import java.awt.Color;
+import java.awt.Font;
+
 import TaskB.Canvas;
 import TaskB.Formats;
 import TaskB.HistogramBase;
@@ -16,7 +19,7 @@ public class HistogramC extends HistogramBase {
         f.margins[NORTH] = 0.12;
         f.margins[SOUTH] = 0.12;
         f.margins[WEST] = 0.2;
-        f.margins[EAST] = 0.1;
+        f.margins[EAST] = 0.15;
         
         setHistogramParameters();
     }
@@ -76,8 +79,7 @@ public class HistogramC extends HistogramBase {
         plotKeys();
         if (f.hasHeader)
             plotHeader();
-        if (f.hasFooter)
-            plotFooter();
+        plotYearNumber();
         StdDraw.show();
         StdDraw.pause(1000 / FRAMES_PER_SEC);
     }
@@ -188,17 +190,19 @@ public class HistogramC extends HistogramBase {
         }
     }
 
-    @Override
-    protected void plotFooter() {
-        plotYearNumber();
-    }
-
     private void plotYearNumber() {
-        // TODO Auto-generated method stub
-        
+        StdDraw.setFont(new Font("Candara", Font.BOLD, 40));
+        StdDraw.setPenColor(Color.DARK_GRAY);
+        final double x = xScale[MAX] * 0.85;
+        final double y = yScale[MIN] + yScale[MAX] * 0.12;
+        StdDraw.text(x, y, a.year);
     }
 
     // These methods will not be used in Task C.
+    @Override
+    protected void plotFooter() {
+    }
+
     @Override
     protected void plotLegends() {
     }

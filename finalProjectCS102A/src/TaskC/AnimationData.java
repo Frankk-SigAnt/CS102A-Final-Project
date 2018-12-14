@@ -3,6 +3,7 @@ package TaskC;
 import TaskB.HistogramData;
 
 public class AnimationData extends HistogramData {
+    protected String year = "";
 	protected String[] years = {};
 	protected double[][] allValues = {};
     RankingMap map = new RankingMap();

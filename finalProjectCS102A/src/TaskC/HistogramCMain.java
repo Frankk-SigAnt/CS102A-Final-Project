@@ -33,6 +33,7 @@ public class HistogramCMain {
 
     private static void iterateHistogram(HistogramC h) {
         for (int i = 1; i < h.a.allValues.length; ++i) {
+            h.a.year = h.a.years[i];
             h.a.values = h.a.allValues[i];
             h.a.generateMap();
             h.draw();
@@ -249,6 +250,7 @@ public class HistogramCMain {
         }
         }catch(ArrayIndexOutOfBoundsException e) {e.printStackTrace();}
         
+        data.year = data.years[0];
         data.values = data.allValues[0];
         data.generateMap();
         return data;
