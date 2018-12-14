@@ -18,11 +18,6 @@ import TaskB.HistogramData;
 import TaskB.HistogramGrouped;
 
 public class HistogramCMain {
-    
-    public static void main(String [] args) {
-        String[] argFile = {"C_GDP.json", "C_Population.json"};
-        new HistogramCMain(argFile[0]);
-    }
 
     public HistogramCMain(String file) {
         HistogramC h = createHistogramCFrom(file);

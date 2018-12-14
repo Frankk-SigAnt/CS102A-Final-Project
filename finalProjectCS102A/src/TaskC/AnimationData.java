@@ -62,7 +62,7 @@ class RankingMap {
         double pivot = median(values[lBound].value, values[rBound-1].value, values[(lBound+rBound)/2].value);
         int lIndex = lBound, rIndex = rBound - 1;
         while (lIndex < rIndex) {
-            while (lIndex < rIndex && values[lIndex].value > pivot) ++lIndex;
+            while (lIndex < rIndex && values[lIndex].value >= pivot) ++lIndex;
             while (lIndex < rIndex && values[rIndex].value < pivot) --rIndex;
             swap(values, lIndex, rIndex);
         }
