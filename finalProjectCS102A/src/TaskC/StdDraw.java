@@ -1475,7 +1475,7 @@ public final class StdDraw implements ActionListener, MouseListener, MouseMotion
         draw();
     }
     
-    public static void rightText(double x, double y, String text) {
+    public static void rightAlignedText(double x, double y, String text) {
         if (text == null) throw new IllegalArgumentException();
         offscreen.setFont(font);
         FontMetrics metrics = offscreen.getFontMetrics();
@@ -1484,6 +1484,18 @@ public final class StdDraw implements ActionListener, MouseListener, MouseMotion
         int ws = metrics.stringWidth(text);
         int hs = metrics.getDescent();
         offscreen.drawString(text, (float) (xs - ws), (float) (ys + hs));
+        draw();
+    }
+    
+    public static void leftAlignedText(double x, double y, String text) {
+        if (text == null) throw new IllegalArgumentException();
+        offscreen.setFont(font);
+        FontMetrics metrics = offscreen.getFontMetrics();
+        double xs = scaleX(x);
+        double ys = scaleY(y);
+        int ws = metrics.stringWidth(text);
+        int hs = metrics.getDescent();
+        offscreen.drawString(text, (float) (xs), (float) (ys + hs));
         draw();
     }
 
