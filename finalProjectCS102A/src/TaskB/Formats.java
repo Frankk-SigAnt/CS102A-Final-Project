@@ -11,7 +11,7 @@ public class Formats {
     public Color barFrameColor = Color.BLACK;
     public boolean hasBorder = true;
     public Color borderColor = Color.BLACK;
-    public Color rulerColor = Color.BLACK;
+    public Color rulerColor = Color.GRAY;
     public Color rulerMarkColor = Color.BLACK;
     public boolean hasRightRuler = true;
     public Color keyColor = Color.BLACK;

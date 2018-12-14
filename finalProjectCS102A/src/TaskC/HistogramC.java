@@ -3,7 +3,6 @@ package TaskC;
 import TaskB.Canvas;
 import TaskB.Formats;
 import TaskB.HistogramBase;
-import TaskB.HistogramData;
 
 public class HistogramC extends HistogramBase {
 	protected AnimationData a;
@@ -117,7 +116,7 @@ public class HistogramC extends HistogramBase {
 
         StdDraw.setFont(f.rulerFont);
         StdDraw.setPenColor(f.rulerColor);
-        final double y0 = yValue[MIN], y1 = yValue[MAX];
+        final double y0 = yValue[MIN], y1 = yValue[MAX] * 0.57;
         String[] mark = new String[rulerGrade + 1];
         for (int i = 0; i <= rulerGrade; i++) {
             double x = xValue[MIN] + i * rulerStep;
