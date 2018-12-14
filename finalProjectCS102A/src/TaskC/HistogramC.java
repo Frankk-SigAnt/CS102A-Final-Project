@@ -8,6 +8,7 @@ import TaskB.HistogramData;
 public class HistogramC extends HistogramBase {
 	protected AnimationData a;
     private static final int TOTAL_BARS = 16;
+    private static final int FRAMES_PER_SEC = 20;
 
     public HistogramC(Canvas c, Formats f, AnimationData a) {
     	super(c,f);
@@ -77,7 +78,7 @@ public class HistogramC extends HistogramBase {
         if (f.hasFooter)
             plotFooter();
         StdDraw.show();
-        StdDraw.pause(50);
+        StdDraw.pause(1000 / FRAMES_PER_SEC);
     }
 
     @Override

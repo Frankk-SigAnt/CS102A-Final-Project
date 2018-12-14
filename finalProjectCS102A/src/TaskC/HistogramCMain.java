@@ -19,16 +19,20 @@ import TaskB.HistogramGrouped;
 
 public class HistogramCMain {
     
-    static HistogramC h;
+    public static void main(String [] args) {
+        String[] argFile = {"C_GDP.json", "C_Population.json"};
+        new HistogramCMain(argFile[0]);
+    }
 
     public HistogramCMain(String file) {
         StdDraw.enableDoubleBuffering();
-        h = createHistogramCFrom(file);
+        HistogramC h = createHistogramCFrom(file);
         h.draw();
-        iterateHistogram();
+        iterateHistogram(h);
+        StdDraw.disableDoubleBuffering();
     }
 
-    private static void iterateHistogram() {
+    private static void iterateHistogram(HistogramC h) {
         for (int i = 1; i < h.a.allValues.length; ++i) {
             h.a.values = h.a.allValues[i];
             h.a.generateMap();
