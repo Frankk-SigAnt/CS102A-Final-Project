@@ -25,7 +25,6 @@ public class HistogramCMain {
     }
 
     public HistogramCMain(String file) {
-        StdDraw.enableDoubleBuffering();
         HistogramC h = createHistogramCFrom(file);
         h.draw();
         iterateHistogram(h);

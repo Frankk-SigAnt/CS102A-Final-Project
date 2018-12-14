@@ -14,11 +14,10 @@ public class HistogramC extends HistogramBase {
     	super(c,f);
     	this.a = a;
         
-        // TODO Margins data may need changes.
-        f.margins[NORTH] = 0.2;
-        f.margins[SOUTH] = 0.2;
-        f.margins[WEST] = 0.14;
-        f.margins[EAST] = 0.14;
+        f.margins[NORTH] = 0.12;
+        f.margins[SOUTH] = 0.12;
+        f.margins[WEST] = 0.2;
+        f.margins[EAST] = 0.1;
         
         setHistogramParameters();
     }
@@ -68,6 +67,7 @@ public class HistogramC extends HistogramBase {
     public void draw() {
         if (isFirstFrame) {
             setCanvas();
+            StdDraw.enableDoubleBuffering();
             isFirstFrame = false;
         }
         else
@@ -153,7 +153,6 @@ public class HistogramC extends HistogramBase {
     protected void plotBars() {
         final double halfHeight = 0.25;
         // Assume that the bars are filled and have no frames.
-        // TODO Customize color for each data.
         for (int j = 0; j < TOTAL_BARS; ++j) {
             int index = a.mapIndex(j);
             double halfWidth = a.values[index] / 2 / a.values[a.mapIndex(0)] * (xValue[MAX] - xValue[MIN]);
@@ -167,11 +166,10 @@ public class HistogramC extends HistogramBase {
     @Override
     protected void plotKeys() {
         StdDraw.setFont(f.keysFont);
-        // TODO Customize color for each data.
         for (int j = 0; j < TOTAL_BARS; ++j) {
             int index = a.mapIndex(j);
             StdDraw.setPenColor(f.getGroupedColor(index)); // what looks like 'color[index]`
-            double xPosition = xValue[MIN] - a.keys[index].length() / 2 - 0.1; // Not tested!
+            double xPosition = xValue[MIN] - a.keys[index].length() * 25 - 100; // TODO further testing
             // TODO Linear interpolation.
             double yPosition = TOTAL_BARS - j; // what looks like `position[index]`
             StdDraw.text(xPosition, yPosition, a.keys[index]);
