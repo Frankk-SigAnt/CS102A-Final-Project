@@ -62,12 +62,14 @@ public class HistogramC extends HistogramBase {
         }
     }
     
-    static boolean isFirstFrame = false;
+    boolean isFirstFrame = true;
 
     @Override
     public void draw() {
-        if (isFirstFrame)
+        if (isFirstFrame) {
             setCanvas();
+            isFirstFrame = false;
+        }
         else
             StdDraw.clear();
         plotRuler();
