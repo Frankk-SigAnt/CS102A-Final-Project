@@ -193,8 +193,8 @@ public class HistogramC extends HistogramBase {
     private void plotYearNumber() {
         StdDraw.setFont(new Font("Candara", Font.BOLD, 40));
         StdDraw.setPenColor(Color.DARK_GRAY);
-        final double x = xScale[MAX] * 0.85;
-        final double y = yScale[MIN] + yScale[MAX] * 0.12;
+        final double x = xScale[MAX] * 0.87;
+        final double y = yScale[MIN] + yScale[MAX] * 0.15;
         StdDraw.text(x, y, a.year);
     }
 
