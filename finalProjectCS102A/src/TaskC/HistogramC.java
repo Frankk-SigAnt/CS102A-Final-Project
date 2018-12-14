@@ -170,10 +170,10 @@ public class HistogramC extends HistogramBase {
         for (int j = 0; j < TOTAL_BARS; ++j) {
             int index = a.mapIndex(j);
             StdDraw.setPenColor(f.getGroupedColor(index)); // what looks like 'color[index]`
-            double xPosition = xValue[MIN] - a.keys[index].length() * 25 - 100; // TODO further testing
+            double xPosition = xValue[MIN] - 30;
             // TODO Linear interpolation.
             double yPosition = TOTAL_BARS - j; // what looks like `position[index]`
-            StdDraw.text(xPosition, yPosition, a.keys[index]);
+            StdDraw.rightText(xPosition, yPosition, a.keys[index]);
         }
     }
 

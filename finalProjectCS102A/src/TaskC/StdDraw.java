@@ -1474,6 +1474,18 @@ public final class StdDraw implements ActionListener, MouseListener, MouseMotion
         offscreen.drawString(text, (float) (xs - ws/2.0), (float) (ys + hs));
         draw();
     }
+    
+    public static void rightText(double x, double y, String text) {
+        if (text == null) throw new IllegalArgumentException();
+        offscreen.setFont(font);
+        FontMetrics metrics = offscreen.getFontMetrics();
+        double xs = scaleX(x);
+        double ys = scaleY(y);
+        int ws = metrics.stringWidth(text);
+        int hs = metrics.getDescent();
+        offscreen.drawString(text, (float) (xs - ws), (float) (ys + hs));
+        draw();
+    }
 
     /**
      * Write the given text string in the current font, centered at (<em>x</em>, <em>y</em>) and
