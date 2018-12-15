@@ -4,7 +4,7 @@
       "size" : [860, 380],
       "xscale" : [0, 2.0],
       "yscale" : [0, 1.0], 
-      "bgcolor" : [0, 0, 0],
+      "bgcolor" : [255,255,255],
       "color" : [255, 255, 255]
    },
    
@@ -13,7 +13,7 @@
       "isbarfilled" : true,
       "barfillcolor" : [0, 0, 255], 
       "hasbarframe" : true,
-      "barframecolor" : [255, 0, 0],  
+      "barframecolor" : [0,0,0],  
       "hasborder" : true,
       "bordercolor" : [0, 255, 0],
       "rulercolor" : [200, 200, 0],
