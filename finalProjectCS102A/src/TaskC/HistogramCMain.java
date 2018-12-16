@@ -25,12 +25,29 @@ public class HistogramCMain {
         iterateHistogram(h);
         StdDraw.disableDoubleBuffering();
     }
+    
+    static final int FRAMES = 20;
 
     private static void iterateHistogram(HistogramC h) {
-        for (int i = 1; i < h.a.allValues.length; ++i) {
-            h.a.year = h.a.years[i];
-            h.a.values = h.a.allValues[i];
-            h.a.generateMap();
+        for (int i = 1; i < AnimationData.allValues.length; ++i) {
+            h.aPrev = h.a;
+            h.aNext.year = AnimationData.years[i];
+            h.aNext.values = AnimationData.allValues[i];
+            h.aNext.generateMap();
+            h.aNext.getPositions();
+            
+            for (int j = 1; j < FRAMES; ++j) {
+                for (int k = 0; k < h.a.values.length; ++k) {
+                    // update value[] and yPositions[]
+                    h.a.values[k] = (FRAMES - j) * 1.0 / FRAMES * h.aPrev.values[k]
+                                  + j * 1.0 / FRAMES * h.aNext.values[k];
+                    h.a.yPositions[k] = (FRAMES - j) * 1.0 / FRAMES * h.aPrev.yPositions[k]
+                                  + j * 1.0 / FRAMES * h.aNext.yPositions[k];
+                }
+                h.draw();
+            }
+            
+            h.a = h.aNext;
             h.draw();
         }
     }
@@ -224,7 +241,7 @@ public class HistogramCMain {
         if (obj.containsKey("minvalue")) {
             data.minValue = obj.getJsonNumber("minvalue").doubleValue(); // DONE for default value
         }
-        data.years = toStringArray(obj.getJsonArray("years"));
+        AnimationData.years = toStringArray(obj.getJsonArray("years"));
         data.keys = toStringArray(obj.getJsonArray("keys"));
         double[][] allValuesTemp = getAllValues(obj.getJsonArray("values"));
         if(obj.containsKey("groupNumber"))
@@ -234,20 +251,21 @@ public class HistogramCMain {
         
         int x = allValuesTemp.length;
         int y = allValuesTemp[0].length;
-        data.allValues =new double[y][x]; 
+        AnimationData.allValues =new double[y][x]; 
         
         
         try {
         for(int i = 0; i < x; i ++) {
         	for(int j = 0; j < y; j++) {
-        		data.allValues[j][i] = allValuesTemp[i][j];
+        		AnimationData.allValues[j][i] = allValuesTemp[i][j];
         	}
         }
         }catch(ArrayIndexOutOfBoundsException e) {e.printStackTrace();}
         
-        data.year = data.years[0];
-        data.values = data.allValues[0];
+        data.year = AnimationData.years[0];
+        data.values = AnimationData.allValues[0];
         data.generateMap();
+        data.getPositions();
         return data;
     }
 

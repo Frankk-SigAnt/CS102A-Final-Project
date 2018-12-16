@@ -3,13 +3,24 @@ package TaskC;
 import TaskB.HistogramData;
 
 public class AnimationData extends HistogramData {
+	public static double[][] allValues = {};
+	public static String[] years = {};
+
     protected String year = "";
-	protected String[] years = {};
-	protected double[][] allValues = {};
+	protected double[] yPositions = {};
     RankingMap map = new RankingMap();
     
     public void generateMap() {
         map.generateMap(ValuePair.getPairArray(values));
+    }
+    
+    public void getPositions() {
+        if (yPositions.length == 0) {
+            yPositions = new double[values.length];
+        }
+        for (int i = 0; i < values.length; ++i) {
+            yPositions[i] = map.getRanking(i);
+        }
     }
     
     public int mapRanking(int index) {

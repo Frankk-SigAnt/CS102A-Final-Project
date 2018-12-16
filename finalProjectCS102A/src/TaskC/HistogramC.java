@@ -8,13 +8,15 @@ import TaskB.Formats;
 import TaskB.HistogramBase;
 
 public class HistogramC extends HistogramBase {
-	protected AnimationData a;
+	protected AnimationData a, aPrev, aNext;
     private static final int TOTAL_BARS = 16;
     private static final int FRAMES_PER_SEC = 20;
 
     public HistogramC(Canvas c, Formats f, AnimationData a) {
     	super(c,f);
     	this.a = a;
+    	this.aPrev = a;
+    	this.aNext = a;
         
         f.margins[NORTH] = 0.12;
         f.margins[SOUTH] = 0.12;
@@ -156,29 +158,57 @@ public class HistogramC extends HistogramBase {
     protected void plotBars() {
         final double halfHeight = 0.25;
         // Assume that the bars are filled and have no frames.
+        for (int index = 0; index < a.values.length; ++index) {
+            double yPosition = TOTAL_BARS - 1 - a.yPositions[index];
+            double halfWidth = a.values[index] / 2 / a.values[a.mapIndex(0)] * (xValue[MAX] - xValue[MIN]);
+            if (yPosition >= 0) {
+                StdDraw.setPenColor(f.getGroupedColor(index));
+                StdDraw.filledRectangle(halfWidth, yPosition, halfWidth, halfHeight);
+                final double push = 0.01 * (xValue[MAX] - xValue[MIN]);
+                StdDraw.textLeft(halfWidth * 2 + push, yPosition, String.format("%.0f", a.values[index]));
+            }
+            else if (yPosition >= -1) {
+                
+            }
+        }
+        /*
         for (int j = 0; j < TOTAL_BARS; ++j) {
             int index = a.mapIndex(j);
             double halfWidth = a.values[index] / 2 / a.values[a.mapIndex(0)] * (xValue[MAX] - xValue[MIN]);
             // TODO Linear interpolation.
             double yPosition = TOTAL_BARS - j; // what looks like `position[index]`
-            StdDraw.setPenColor(f.getGroupedColor(index)); // what looks like `color[index]`
+            StdDraw.setPenColor(f.getGroupedColor(index));
             StdDraw.filledRectangle(halfWidth, yPosition, halfWidth, halfHeight);
             final double push = 0.01 * (xValue[MAX] - xValue[MIN]);
             StdDraw.textLeft(halfWidth * 2 + push, yPosition, String.valueOf(a.values[index]));
         }
+        */
     }
     
     @Override
     protected void plotKeys() {
         StdDraw.setFont(f.keysFont);
+        double xPosition = xValue[MIN] - 0.01 * (xValue[MAX] - xValue[MIN]);
+        for (int index = 0; index < a.values.length; ++index) {
+            double yPosition = TOTAL_BARS - 1 - a.yPositions[index];
+            if (yPosition >= 0) {
+                StdDraw.setPenColor(f.getGroupedColor(index));
+                StdDraw.textRight(xPosition, yPosition, a.keys[index]);
+            }
+            else if (yPosition >= -1) {
+                
+            }
+        }
+        /*
         for (int j = 0; j < TOTAL_BARS; ++j) {
             int index = a.mapIndex(j);
-            StdDraw.setPenColor(f.getGroupedColor(index)); // what looks like 'color[index]`
+            StdDraw.setPenColor(f.getGroupedColor(index));
             double xPosition = xValue[MIN] - 0.01 * (xValue[MAX] - xValue[MIN]);
             // TODO Linear interpolation.
             double yPosition = TOTAL_BARS - j; // what looks like `position[index]`
             StdDraw.textRight(xPosition, yPosition, a.keys[index]);
         }
+        */
     }
 
     @Override
