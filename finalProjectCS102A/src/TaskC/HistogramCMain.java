@@ -30,7 +30,7 @@ public class HistogramCMain {
 
     private static void iterateHistogram(HistogramC h) {
         for (int i = 1; i < AnimationData.allValues.length; ++i) {
-            h.aPrev = h.a;
+            h.aPrev = h.a.clone();
             h.aNext.year = AnimationData.years[i];
             h.aNext.values = AnimationData.allValues[i];
             h.aNext.generateMap();
@@ -47,7 +47,7 @@ public class HistogramCMain {
                 h.draw();
             }
             
-            h.a = h.aNext;
+            h.a = h.aNext.clone();
             h.draw();
         }
     }

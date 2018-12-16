@@ -12,6 +12,16 @@ public class AnimationData extends HistogramData {
     
     public AnimationData clone() {
         AnimationData clonedObj = new AnimationData();
+        // Clone field in super class
+        clonedObj.header = this.header.toString();
+        clonedObj.footer = this.footer.toString();
+        clonedObj.source = this.source.toString();
+        clonedObj.groupMembers = this.groupMembers.clone();
+        clonedObj.minValue = this.minValue;
+        clonedObj.keys = this.keys.clone();
+        clonedObj.groupNumber = this.groupNumber;
+        clonedObj.values = this.values.clone();
+        // Clone field in this class
         clonedObj.year = this.year.toString();
         clonedObj.yPositions = this.yPositions.clone();
         clonedObj.map = this.map.clone();
