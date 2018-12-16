@@ -187,8 +187,8 @@ public class HistogramGrouped extends HistogramBase {
 			StdDraw.setPenColor(this.f.getGroupedColor()[i]);
 			StdDraw.filledRectangle(x, y, w, h);
 			String text = d.groupMembers[i];
-			double push = text.length() * 1.0 / 4;
-			StdDraw.text(x + push, y, text);
+			final double push = 0.67;
+			StdDraw.textLeft(x + push, y, text);
 		}
 	}
 

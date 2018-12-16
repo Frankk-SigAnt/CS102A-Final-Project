@@ -163,7 +163,7 @@ public class HistogramC extends HistogramBase {
             double yPosition = TOTAL_BARS - j; // what looks like `position[index]`
             StdDraw.setPenColor(f.getGroupedColor(index)); // what looks like `color[index]`
             StdDraw.filledRectangle(halfWidth, yPosition, halfWidth, halfHeight);
-            StdDraw.leftAlignedText(halfWidth * 2 + 35, yPosition, String.valueOf(a.values[index]));
+            StdDraw.textLeft(halfWidth * 2 + 35, yPosition, String.valueOf(a.values[index]));
         }
     }
     
@@ -176,7 +176,7 @@ public class HistogramC extends HistogramBase {
             double xPosition = xValue[MIN] - 30;
             // TODO Linear interpolation.
             double yPosition = TOTAL_BARS - j; // what looks like `position[index]`
-            StdDraw.rightAlignedText(xPosition, yPosition, a.keys[index]);
+            StdDraw.textRight(xPosition, yPosition, a.keys[index]);
         }
     }
 

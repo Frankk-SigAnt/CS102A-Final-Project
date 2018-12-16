@@ -152,20 +152,19 @@ public class HistogramStacked extends HistogramBase {
 		StdDraw.rectangle(xValue[MIN] + 0.2 + 1.05, halfYPosition, 1.05, 0.5 * frameHeight);
 		for (int i = 1; i <= d.groupNumber; i++) {
 			if (f.isBarFilled) {
+			    final double push = 0.67;
 				if (f.barFillColor != null) {
 					StdDraw.setPenColor(f.barFillColor);
 					StdDraw.filledRectangle(xValue[MIN] + 0.3 + 0.2, bottom + i * step, w, h);
 					String text = d.groupMembers[i - 1];
-					double push = text.length()*1.0/9 + 0.1;
-					StdDraw.text(xValue[MIN] + 0.3 + 0.2 + push, bottom + i * step, text);
+					StdDraw.textLeft(xValue[MIN] + push, bottom + i * step, text);
 				} else {
 					try {
 						StdDraw.setPenColor(this.f.getGroupedColor()[i - 1]);
 					}catch(ArrayIndexOutOfBoundsException e) {}
 					StdDraw.filledRectangle(xValue[MIN] + 0.3 + 0.2, bottom + i * step, w, h);
 					String text = d.groupMembers[i - 1];
-					double push = text.length()*1.0/9 + 0.1;
-					StdDraw.text(xValue[MIN] + 0.3 + 0.2 + push, bottom + i * step, text);
+					StdDraw.textLeft(xValue[MIN] + push, bottom + i * step, text);
 				}
 			}
 		}
