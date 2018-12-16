@@ -42,7 +42,7 @@ public class HistogramCMain {
                     h.a.values[k] = (FRAMES - j) * 1.0 / FRAMES * h.aPrev.values[k]
                                   + j * 1.0 / FRAMES * h.aNext.values[k];
                     h.a.yPositions[k] = (FRAMES - j) * 1.0 / FRAMES * h.aPrev.yPositions[k]
-                                  + j * 1.0 / FRAMES * h.aNext.yPositions[k];
+                                      + j * 1.0 / FRAMES * h.aNext.yPositions[k];
                 }
                 h.draw();
             }

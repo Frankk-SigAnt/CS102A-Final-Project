@@ -10,6 +10,14 @@ public class AnimationData extends HistogramData {
 	protected double[] yPositions = {};
     RankingMap map = new RankingMap();
     
+    public AnimationData clone() {
+        AnimationData clonedObj = new AnimationData();
+        clonedObj.year = this.year.toString();
+        clonedObj.yPositions = this.yPositions.clone();
+        clonedObj.map = this.map.clone();
+        return clonedObj;
+    }
+    
     public void generateMap() {
         map.generateMap(ValuePair.getPairArray(values));
     }
@@ -38,6 +46,13 @@ class RankingMap {
     // Note that the ranking starts from 0.
     private int[] rankings = {};
     private int[] indexes = {};
+    
+    public RankingMap clone() {
+        RankingMap clonedObj = new RankingMap();
+        clonedObj.rankings = this.rankings.clone();
+        clonedObj.indexes = this.indexes.clone();
+        return clonedObj;
+    }
     
     public void generateMap(ValuePair[] values) {
         // Initialization.

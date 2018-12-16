@@ -15,8 +15,8 @@ public class HistogramC extends HistogramBase {
     public HistogramC(Canvas c, Formats f, AnimationData a) {
     	super(c,f);
     	this.a = a;
-    	this.aPrev = a;
-    	this.aNext = a;
+    	this.aPrev = a.clone();
+    	this.aNext = a.clone();
         
         f.margins[NORTH] = 0.12;
         f.margins[SOUTH] = 0.12;
