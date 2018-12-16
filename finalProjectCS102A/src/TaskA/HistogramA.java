@@ -252,10 +252,12 @@ public class HistogramA {
     private void plotKeys() {
         StdDraw.setFont(f.keysFont);
         StdDraw.setPenColor(f.keyColor);
-        final double y = yValue[MIN] - 0.5 * rulerStep;
+        final double y = yValue[MIN] - 0.25 * rulerStep;
+        final double yFoot = yValue[MIN] - 0.05 * rulerStep;
         for (int i = 0; i < d.keys.length; i++) {
             if (d.keys[i].length() >= 1) {
                 double x = xValue[MIN] + 1 + i;
+                StdDraw.line(x, yValue[MIN], x, yFoot);
                 StdDraw.text(x, y, d.keys[i]);
             }
         }
