@@ -81,9 +81,9 @@ public class HistogramC extends HistogramBase {
         plotRuler();
         plotBars();
         plotKeys();
-        if (f.hasHeader)
-            plotHeader();
         plotYearNumber();
+        if (f.hasHeader)
+        	plotHeader();
         StdDraw.show();
         StdDraw.pause(1000 / FRAMES_PER_SEC);
     }
@@ -241,8 +241,8 @@ public class HistogramC extends HistogramBase {
         StdDraw.setFont(f.headerFont);
         StdDraw.setPenColor(f.headerColor);
         if (f.headerLocation == null) {
-            double x = .5 * (xScale[MIN] + xScale[MAX]);
-            double y = .5 * (yValue[MAX] + yScale[MAX]);
+            double x = .4 * (xScale[MAX] );
+            double y = .55 * (yValue[MAX] );
             StdDraw.text(x, y, a.header);
         } else {
             StdDraw.text(f.headerLocation[0], f.headerLocation[1], a.header);
