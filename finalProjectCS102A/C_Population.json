@@ -19,7 +19,7 @@
 		"footer" : "Figure of 2000-2017 population of each provinces of China",
 		"minvalue" : 0.0,
 		"keys" : [
-			"Beijing","Tianjin","Hebei","Shanxi","Inner Mongolia","Liaoning","Jilin","Heilongjiang","Shanghai","Jiangsu","Zhejiang","Anhui","Fujian","Jinagxi","Shandong","Henan","Hubei","Hunan","Guangdong","Guangxi","Hainan","Chongqing","Sichuan","Guizhou","Yunnan","Xizang","Shanxi","Gansu","Qinghai","Ningxia","Xinjiang"
+			"Beijing","Tianjin","Hebei","Shan(1)xi","Inner Mongolia","Liaoning","Jilin","Heilongjiang","Shanghai","Jiangsu","Zhejiang","Anhui","Fujian","Jinagxi","Shandong","Henan","Hubei","Hunan","Guangdong","Guangxi","Hainan","Chongqing","Sichuan","Guizhou","Yunnan","Xizang","Shan(3)xi","Gansu","Qinghai","Ningxia","Xinjiang"
 		],
 		
 		"years" : [

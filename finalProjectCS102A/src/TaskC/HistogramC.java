@@ -162,12 +162,30 @@ public class HistogramC extends HistogramBase {
             double yPosition = TOTAL_BARS - 1 - a.yPositions[index];
             double halfWidth = a.values[index] / 2 / a.values[a.mapIndex(0)] * (xValue[MAX] - xValue[MIN]);
             if (yPosition >= 0) {
-                StdDraw.setPenColor(f.getGroupedColor(index));
+            	int alpha = 255; 
+            	if(yPosition == 0) {
+            		alpha = (int)(1-yPosition)*255;
+            	}
+            	Color tempColor = new Color(
+            			f.getGroupedColor(index).getRed(),
+            			f.getGroupedColor(index).getGreen(),
+                		f.getGroupedColor(index).getBlue(),
+                		alpha);
+                StdDraw.setPenColor(tempColor);
                 StdDraw.filledRectangle(halfWidth, yPosition, halfWidth, halfHeight);
                 final double push = 0.01 * (xValue[MAX] - xValue[MIN]);
                 StdDraw.textLeft(halfWidth * 2 + push, yPosition, String.format("%.0f", a.values[index]));
             }
             else if (yPosition >= -1) {
+            	Color tempColor = new Color(
+            			f.getGroupedColor(index).getRed(),
+            			f.getGroupedColor(index).getGreen(),
+                		f.getGroupedColor(index).getBlue(),
+                		(int) (255*(1+yPosition)));
+                StdDraw.setPenColor(tempColor);
+                StdDraw.filledRectangle(halfWidth, yPosition, halfWidth, halfHeight);
+                final double push = 0.01 * (xValue[MAX] - xValue[MIN]);
+                StdDraw.textLeft(halfWidth * 2 + push, yPosition, String.format("%.0f", a.values[index]));
                 
             }
         }
@@ -196,7 +214,14 @@ public class HistogramC extends HistogramBase {
                 StdDraw.textRight(xPosition, yPosition, a.keys[index]);
             }
             else if (yPosition >= -1) {
-                
+            	Color tempColor = new Color(
+            			f.getGroupedColor(index).getRed(),
+            			f.getGroupedColor(index).getGreen(),
+                		f.getGroupedColor(index).getBlue(),
+                		(int) (255*(1+yPosition)));
+                StdDraw.setPenColor(tempColor);
+            	
+                StdDraw.textRight(xPosition, yPosition, a.keys[index]);
             }
         }
         /*
