@@ -47,24 +47,29 @@ public abstract class HistogramBase {
 
         double span = max - yValue[MIN];
         double factor = 1.0;
-        if (span >= 1)
+        if (span >= 1) {
             while (span >= 10) {
                 span /= 10;
                 factor *= 10;
             }
-        else
+        } else {
             while (span < 1) {
                 span *= 10;
                 factor /= 10;
             }
-        int nSpan = (int) Math.ceil(span);
+        }
+        int nSpan = (int) span;
+        span = max - yValue[MIN];
         yValue[MAX] = yValue[MIN] + factor * nSpan;
         switch (nSpan) {
         case 1:
-            rulerGrade = 5;
+            rulerGrade = 5 + (int)((span - factor) * 10 / 2);
             rulerStep = factor / 5;
             break;
         case 2:
+        	rulerGrade = 5 + (int)(Math.ceil((span - factor) * 10 / 2) + 1);
+            rulerStep = factor / 5;
+            break;
         case 3:
             rulerGrade = nSpan * 2;
             rulerStep = factor / 2;

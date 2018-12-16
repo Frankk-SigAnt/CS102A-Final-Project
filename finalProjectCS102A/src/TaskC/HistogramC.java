@@ -122,7 +122,7 @@ public class HistogramC extends HistogramBase {
 
         StdDraw.setFont(f.rulerFont);
         StdDraw.setPenColor(f.rulerColor);
-        final double y0 = yValue[MIN], y1 = yValue[MAX] * 0.57;
+        final double y0 = yValue[MIN], y1 = yValue[MAX] * 0.52;
         String[] mark = new String[rulerGrade + 1];
         for (int i = 0; i <= rulerGrade; i++) {
             double x = xValue[MIN] + i * rulerStep;
