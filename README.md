@@ -1,6 +1,7 @@
 # CS102A-Final-Project
 
 Final project for CS102A, SUSTech (Fall 2018)
+Done in coopeeration with Shuchen Wang (王澍辰) & Yuxuan Cao (曹宇轩)
 
  ---
 
