@@ -39,7 +39,7 @@ class TestFrame extends JFrame {
 
         A1_Given = new JButton("A1_Given_FontTest");
         A1_Given.addActionListener(e -> {
-			new HistogramATest("A1_FontTest.json");
+			new HistogramATest("A1_Given_FontTest.json");
         });
 
         A1_DefaultTest = new JButton("A1_DefaultTest");

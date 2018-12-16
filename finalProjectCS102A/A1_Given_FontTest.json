@@ -1,0 +1,60 @@
+{
+"histograma" : {
+   "canvas" : {
+      "size" : [860, 380],
+      "xscale" : [0, 2.0],
+      "yscale" : [0, 1.0], 
+      "bgcolor" : [255,255,255],
+      "color" : [255, 255, 255]
+   },
+   
+   "formats" : {
+      "margins" : [0.15, 0.25, 0.1, 0.05],
+      "isbarfilled" : true,
+      "barfillcolor" : [0, 0, 255], 
+      "hasbarframe" : true,
+      "barframecolor" : [0,0,0],  
+      "hasborder" : true,
+      "bordercolor" : [0, 255, 0],
+      "rulercolor" : [200, 200, 0],
+      "rulermarkcolor" : [200, 200, 0],
+      "hasrightruler" : true,
+      "keycolor" : [200, 200, 0],
+      "hasheader" : true,
+      "headercolor" : [0, 100, 100],
+      "hasfooter" : true,
+      "footercolor" : [0, 200, 200],
+      "rulerFont" : ["consolas", "ITALIC", "12"],
+      "keysFont" : ["consolas", "ITALIC", "12"],
+      "headerFont": ["consolas","ITALIC", "12"],
+      "footerFont" : ["consolas","ITALIC", "12"],
+      "headerLocation" : [15,330000],
+      "footerLocation" : [15,280000]
+   },
+     
+   "data" : { 
+      "header" : "1988-2017 imports and exports of P.R.China",
+      "footer" : "Figure 4.3 1988-2017 imports and exports of P.R.China (in 10 thousand)",
+      "minvalue" : 0.0,
+      "keys" : [ 
+          "1988","","","","",
+          "1993","","","","",
+          "1998","","","","",
+          "2003","","","","",
+          "2008","","","","",
+          "2013","","","","2017"
+      ], 
+                 
+      "values" : [
+          3821.8,4155.9,5560.1,7225.8,9119.6,11271,
+          20381.9,23499.9,24133.8,26967.2,26849.7,
+          29896.3,39273.2,42183.6,51378.2,70483.5,
+          95539.1,116921.8,140974,166863.7,179921.47,
+          150648.06,201722.15,236401.95,244160.2,
+          258168.9,264241.77,245502.93,243386.46,277923
+
+      ]
+   }
+}        
+}
+
