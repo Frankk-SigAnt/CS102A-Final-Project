@@ -48,19 +48,19 @@ public class HistogramC extends HistogramBase {
                 factor /= 10;
             }
         int nSpan = (int) Math.floor(span);
+        span = max - yValue[MIN];
         switch (nSpan) {
         case 1:
-            rulerGrade = 5;
             rulerStep = factor / 5;
+        	rulerGrade = (int) Math.floor(span / rulerStep);
             break;
         case 2:
-        case 3:
-            rulerGrade = nSpan * 2;
             rulerStep = factor / 2;
+            rulerGrade = (int) Math.floor(span / rulerStep);
             break;
         default:
-            rulerGrade = nSpan;
             rulerStep = factor;
+            rulerGrade = nSpan;
             break;
         }
     }
@@ -109,7 +109,7 @@ public class HistogramC extends HistogramBase {
         yScale[MAX] = nBars + f.margins[NORTH] * ySpacing;
         StdDraw.setYscale(yScale[MIN], yScale[MAX]);
     }
-
+    
     @Override
     protected void setOriginalScale() {
         StdDraw.setXscale(c.xScale[MIN], c.xScale[MAX]);
