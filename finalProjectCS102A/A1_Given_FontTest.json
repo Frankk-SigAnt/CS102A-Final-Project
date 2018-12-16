@@ -1,7 +1,7 @@
 {
 "histograma" : {
    "canvas" : {
-      "size" : [860, 380],
+      "size" : [1000, 500],
       "xscale" : [0, 2.0],
       "yscale" : [0, 1.0], 
       "bgcolor" : [255,255,255],
@@ -28,7 +28,7 @@
       "keysFont" : ["consolas", "ITALIC", "12"],
       "headerFont": ["consolas","ITALIC", "12"],
       "footerFont" : ["consolas","ITALIC", "12"],
-      "headerLocation" : [15,330000],
+      "headerLocation" : [15,350000],
       "footerLocation" : [15,280000]
    },
      

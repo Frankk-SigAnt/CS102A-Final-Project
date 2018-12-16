@@ -295,7 +295,7 @@ public class HistogramA {
         }
         for (int i = 0; i <= rulerGrade; i++) {
             double y = yValue[MIN] + i * rulerStep;
-            StdDraw.text(x1 + max / 3, y, text[i]);
+            StdDraw.textLeft(1.005*x1, y, text[i]);
         }
     } // DONE
 
