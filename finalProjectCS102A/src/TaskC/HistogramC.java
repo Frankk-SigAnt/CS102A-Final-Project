@@ -157,6 +157,7 @@ public class HistogramC extends HistogramBase {
     @Override
     protected void plotBars() {
         final double halfHeight = 0.25;
+        StdDraw.setFont(f.keysFont);
         // Assume that the bars are filled and have no frames.
         for (int index = 0; index < a.values.length; ++index) {
             double yPosition = TOTAL_BARS - 1 - a.yPositions[index];
@@ -189,18 +190,6 @@ public class HistogramC extends HistogramBase {
                 
             }
         }
-        /*
-        for (int j = 0; j < TOTAL_BARS; ++j) {
-            int index = a.mapIndex(j);
-            double halfWidth = a.values[index] / 2 / a.values[a.mapIndex(0)] * (xValue[MAX] - xValue[MIN]);
-            // TODO Linear interpolation.
-            double yPosition = TOTAL_BARS - j; // what looks like `position[index]`
-            StdDraw.setPenColor(f.getGroupedColor(index));
-            StdDraw.filledRectangle(halfWidth, yPosition, halfWidth, halfHeight);
-            final double push = 0.01 * (xValue[MAX] - xValue[MIN]);
-            StdDraw.textLeft(halfWidth * 2 + push, yPosition, String.valueOf(a.values[index]));
-        }
-        */
     }
     
     @Override
@@ -224,16 +213,6 @@ public class HistogramC extends HistogramBase {
                 StdDraw.textRight(xPosition, yPosition, a.keys[index]);
             }
         }
-        /*
-        for (int j = 0; j < TOTAL_BARS; ++j) {
-            int index = a.mapIndex(j);
-            StdDraw.setPenColor(f.getGroupedColor(index));
-            double xPosition = xValue[MIN] - 0.01 * (xValue[MAX] - xValue[MIN]);
-            // TODO Linear interpolation.
-            double yPosition = TOTAL_BARS - j; // what looks like `position[index]`
-            StdDraw.textRight(xPosition, yPosition, a.keys[index]);
-        }
-        */
     }
 
     @Override
