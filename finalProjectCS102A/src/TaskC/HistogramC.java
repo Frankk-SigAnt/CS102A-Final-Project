@@ -51,7 +51,7 @@ public class HistogramC extends HistogramBase {
         span = max - yValue[MIN];
         switch (nSpan) {
         case 1:
-            rulerStep = factor / 5;
+            rulerStep = factor / 4;
         	rulerGrade = (int) Math.floor(span / rulerStep);
             break;
         case 2:

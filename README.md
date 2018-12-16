@@ -19,6 +19,6 @@ Final project for CS102A, SUSTech (Fall 2018)
  - [x] **B.4** Define main class(es) for execution
 
 ### Task C
- - [ ] **C.1** Define class `HistogramC` and main class to plot horizontal bar charts
- - [ ] **C.2** Complete key frames according to the data
- - [ ] **C.3** Finish animation using linear interpolation
+ - [x] **C.1** Define class `HistogramC` and main class to plot horizontal bar charts
+ - [x] **C.2** Complete key frames according to the data
+ - [x] **C.3** Finish animation using linear interpolation
